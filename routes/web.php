@@ -30,7 +30,5 @@ Route::prefix('/image')->group(function() {
         catch(\Exception $e) {
             return $e->getMessage();
         }
-        $im = new \Imagick();
-
     });
 });
