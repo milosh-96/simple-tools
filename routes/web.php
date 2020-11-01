@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Respnse;
-
+use Illuminate\Support\Facades\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,21 +13,30 @@ use Illuminate\Support\Facades\Respnse;
 |
 */
 
-Route::get('/', function () {
+Route::get('/',function() {
+    $data = ["title"=>"Welcome"];
+    return view('index')->with($data);
+});
+Route::prefix('/image')->group(function() {
+    Route::get('/resize',function() {
+        $data = ["title"=>"Resize Image"];
+        return view('image.resize')->with($data);
+    })->name('image.resize');
+});
+Route::prefix('/number')->group(function() {
+    Route::match(["get","post"],'/random',function() {
+        $min = request()->min ?? 0;
+        $max = request()->max ?? 100000;
+        $data = ["title"=>"Random Number","min"=>$min,"max"=>$max,"number"=>App\Services\NumberService::randomNumber($min,$max)];
+        return view('number.random')->with($data);
+    })->name('number.random');
 });
 
-Route::prefix('/image')->group(function() {
-    Route::get('/',function() {
-        try {
-            $imageBlob = file_get_contents(request()->url);
-            $source = new \Imagick();
-            $source->readImageBlob($imageBlob);
-            $source->resizeImage(256,128,\Imagick::FILTER_BOX, true);
-            $response = Response::make($source, 200)->header("Content-Type","image/jpeg");
-            return $response;
-        }
-        catch(\Exception $e) {
-            return $e->getMessage();
-        }
+Route::prefix('/engine')->group(function() {
+    Route::prefix('/image')->group(function() {
+        Route::get('/',[App\Http\Controllers\ImageController::class,"resizeImage"])->name('engine.image.resize');
+        Route::any('/resize',[App\Http\Controllers\ImageController::class,"resizeImage"])->name('engine.image.resize');
     });
 });
+
+
