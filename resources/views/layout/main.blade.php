@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-        <header style="background: #f2f2f2;padding:12px;margin-bottom:50px;">
+        <header style="background: #f2f2f2;margin-bottom:50px;">
            <div class="row">
             <div style="font-size: 24px;">
                 <a href="/" style="">
