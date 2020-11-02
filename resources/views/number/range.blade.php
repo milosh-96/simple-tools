@@ -17,8 +17,9 @@
         <div class="input-group">
             <label for="">Separator</label>
             <select name="separator" id="">
-                <option value=".">Comma (.)</option>
-                <option value=",">Colon (,)</option>
+                <option value=",">Comma (,)</option>
+                <option value=".">Dot (.)</option>
+                <option value=":">Colon (:)</option>
                 <option value="-">Hyphen (-)</option>
                 <option value=";">Semicolon (;)</option>
                 <option value="space">Empty space (space key)</option>
