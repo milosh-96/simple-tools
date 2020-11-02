@@ -55,11 +55,11 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <footer style="margin-top:300px;background:#f2f2f2;padding:10px">
-            &copy; Simple Tools {{date("Y")}}. Developed by Miloš Jovanović - Simple Tools.
+        <footer style="margin-top:300px;background:#f2f2f2">
+            <div class="row">
+                &copy; Simple Tools {{date("Y")}}. Developed by Miloš Jovanović - Simple Tools.
+            </div>
         </footer>
-    </div>
     @yield('scriptSection')
 </body>
 </html>
