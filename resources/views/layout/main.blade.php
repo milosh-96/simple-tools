@@ -57,7 +57,7 @@
     </div>
         <footer style="margin-top:300px;background:#f2f2f2">
             <div class="row">
-                <div style="padding:10px">
+                <div style="padding: 0 10px">
                     &copy; Simple Tools {{date("Y")}}. Developed by Miloš Jovanović - Simple Tools.
                 </div>
             </div>
