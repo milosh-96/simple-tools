@@ -18,7 +18,7 @@
            <div class="row">
             <h1 style="font-size: 24px;">
                 <a href="/" style="">
-                    <span style="text-decoration: underline">
+                    <span>
                         simple<strong>tools</strong>
                     </span>
                     <span style="color:blue">:</span>
