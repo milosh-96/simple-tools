@@ -30,6 +30,14 @@ Route::prefix('/number')->group(function() {
         $data = ["title"=>"Random Number","min"=>$min,"max"=>$max,"number"=>App\Services\NumberService::randomNumber($min,$max)];
         return view('number.random')->with($data);
     })->name('number.random');
+
+    Route::match(["get","post"],'/range',function() {
+        $start = request()->start ?? 0;
+        $end = request()->end ?? 25;
+        $separator = request()->separator ?? ",";
+        $data = ["title"=>"Range of Numbers","start"=>$start,"end"=>$end,"result"=>App\Services\NumberService::rangeOfNumbers($start,$end,$separator)];
+        return view('number.range')->with($data);
+    })->name('number.range');
 });
 
 Route::prefix('/engine')->group(function() {

@@ -19,7 +19,7 @@
     </div>
 
 
-    <button>Create</button>
+    <button class="button" type="submit">Get</button>
 </form>
 
 
@@ -30,18 +30,21 @@
     <?php $url = route('engine.image.resize',request()->all()); ?>
         <img id="resultImage" src="{{$url}}" alt="">
 
+        @section('scriptSection')
+<script>
+    var img = document.getElementById("resultImage");
+    var imageObject = new Image();
+    imageObject.src = img.getAttribute("src");
+    //alert(imageObject.src);
+    imageObject.onload= function() {
+        document.getElementById("width").value = this.width;
+        document.getElementById("height").value = this.height;
+    };
+   // alert(img.height);
+</script>
+@endsection
 
-        <script>
-            var img = document.getElementById("resultImage");
-            var imageObject = new Image();
-            imageObject.src = img.getAttribute("src");
-            //alert(imageObject.src);
-            imageObject.onload= function() {
-                document.getElementById("width").value = this.width;
-                document.getElementById("height").value = this.height;
-            };
-           // alert(img.height);
-        </script>
     @endif
 
 @endsection
+

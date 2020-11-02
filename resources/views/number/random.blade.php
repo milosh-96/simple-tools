@@ -13,11 +13,12 @@
            <label for="">Max</label>
            <input type="number" name="max" id="max" value="{{$max}}">
        </div>
-        <button>Get</button>
+        <button class="button" type="submit">Get</button>
 
 
     </form>
     @if(request()->submitted)
-    <h2>{{$number}}</h2>
+
+    <h3>{{$number}}</h3>
     @endif
 @endsection
