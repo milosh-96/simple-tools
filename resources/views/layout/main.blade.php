@@ -18,10 +18,9 @@
            <div class="row">
             <h1 style="font-size: 24px;">
                 <a href="/" style="">
-                    <span>
-                        simple<strong>tools</strong>
-                    </span>
-                    <span style="color:blue">:</span>
+                    <p>
+                        simple<strong>tools<span style="color:blue">:</span></strong>
+                    </p>
                 </a>
                 <a href="#">do simple - simply!</a>
                 <h1>
