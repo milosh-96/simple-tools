@@ -18,7 +18,7 @@
            <div class="row">
             <h1 style="font-size: 24px;">
                 <a href="/" style="">
-                    <p>
+                    <p style="display: inline-block">
                         simple<strong>tools<span style="color:blue">:</span></strong>
                     </p>
                 </a>
