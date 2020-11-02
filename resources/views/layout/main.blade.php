@@ -16,14 +16,14 @@
 <body>
         <header style="background: #f2f2f2;padding:12px;margin-bottom:50px;">
            <div class="row">
-            <h1 style="font-size: 24px;">
+            <div style="font-size: 24px;">
                 <a href="/" style="">
                     <p style="display: inline-block">
                         simple<strong>tools<span style="color:blue">:</span></strong>
                     </p>
                 </a>
                 <a href="#">do simple - simply!</a>
-                <h1>
+            </div>
            </div>
         </header>
     <div class="row">
