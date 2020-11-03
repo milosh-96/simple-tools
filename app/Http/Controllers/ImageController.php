@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Services\ImageService;
 class ImageController extends Controller
 {
+
     public function resizeImage() {
-        $props = request()->all();
-        //return $props;
-        return ImageService::resize(request()->url,$props);
+        $data = ["title"=>"Resize Image"];
+        return view('image.resize')->with($data);
     }
 }

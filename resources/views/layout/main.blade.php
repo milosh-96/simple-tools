@@ -28,22 +28,7 @@
         </header>
     <div class="row">
         <div class="columns small-12 medium-3" style="background:rgb(240,240,250)">
-            <h3>List of our tools</h3>
-            <p><strong>Image Tools</strong></p>
-            <ul>
-                <li>
-                 <a href="{{route('image.resize')}}">Resize Image</a>
-                </li>
-            </ul>
-            <p><strong>Number Tools</strong></p>
-            <ul>
-                <li>
-                 <a href="{{route('number.random')}}">Random Number</a>
-                </li>
-                <li>
-                 <a href="{{route('number.range')}}">Range of Numbers</a>
-                </li>
-            </ul>
+           @include('layout.sidenav')
         </div>
         <div class="columns small-12 medium-9">
             <div class="row">

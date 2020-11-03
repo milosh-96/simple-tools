@@ -31,8 +31,15 @@
 </form>
 
     @if(request()->submitted)
+        @if(session()->has('messages'))
+        <div class="callout warning">
+            @foreach(session()->get('messages') as $msg)
+            {{$msg}}
+            @endforeach
+        </div>
+        @endif
     <hr>
-    <textarea disabled style="width:100%;resize:none;">{{$result}}</textarea >
+    <textarea disabled style="width:100%;resize:none;min-height:120px;height:auto;max-height:300px">{{$result}}</textarea >
     @endif
 
 @endsection
