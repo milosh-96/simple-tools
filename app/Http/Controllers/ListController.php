@@ -15,6 +15,7 @@ class ListController extends Controller
       if(request()->submitted) {
         $viewModel->getParsedItems(request()->items);
       }
+
       $data = ["viewModel"=>$viewModel];
         return view("list.random-items",$data);
     }

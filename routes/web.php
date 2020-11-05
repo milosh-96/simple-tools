@@ -18,8 +18,8 @@ Route::get("/",function() {
     return view("index")->with($data);
 });
 Route::prefix("/image")->group(function() {
-    Route::get("/resize",[App\Http\Controllers\ImageController::class,"resizeImage"])->name("image.resize");
-    Route::get("/crop",[App\Http\Controllers\ImageController::class,"cropImage"])->name("image.crop");
+    Route::match(["get","post"],"/resize",[App\Http\Controllers\ImageController::class,"resizeImage"])->name("image.resize");
+    Route::match(["get","post"],"/crop",[App\Http\Controllers\ImageController::class,"cropImage"])->name("image.crop");
 });
 Route::prefix("/number")->group(function() {
     Route::match(["get","post"],"random",[App\Http\Controllers\NumberController::class,"random"])->name("number.random");

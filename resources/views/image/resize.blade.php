@@ -1,9 +1,11 @@
 @extends('layout.main')
 @section('content')
 
-    <h2>Resize Image</h2>
+    <h2>{{$viewModel->getTitle()}}</h2>
     <hr>
-   <form action="{{route('image.resize')}}">
+   <form action="{{route('image.resize')}}" method="POST">
+    @csrf
+    <input type="hidden" name="submitted" value="1">
     <div class="row">
         <div class="small-12 medium-8 columns">
             <div class="input-group">
@@ -11,13 +13,14 @@
                 <input type="text"  name="url" value="{{old('url') ?? request()->url}}">
             </div>
 
-            @if(request()->url)
+            @if(request()->submitted == 1)
     <hr>
     <h3>Result</h3>
-    <?php $url = route('engine.image.resize',request()->all()); ?>
-        <img id="resultImage" src="{{$url}}" alt="" max-width="100%">
-            <small>image is resized, you can save it or open in a new tab to see it in full size.</small>
+        <img id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%">
+        <small>image is resized, you can save it or open in a new tab to see it in full size.</small>
         @section('scriptSection')
+
+
 <script>
     var img = document.getElementById("resultImage");
     var imageObject = new Image();
