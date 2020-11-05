@@ -18,7 +18,7 @@
    </form>
     @if(request()->submitted)
         <hr>
-        <h3>Result</h3>
+        <h3>Result: {{$viewModel->parsedItems[$viewMOdel->randomItemIndex]}}</h3>
         @if($viewModel->parsedItems)
             <ul class="list">
                 @foreach($viewModel->parsedItems as $key=>$value)
