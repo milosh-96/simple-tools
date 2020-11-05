@@ -14,4 +14,9 @@ class ImageController extends Controller
         //return $props;
         return ImageService::resize(request()->url,$props);
     }
+    public function cropImage() {
+        $props = request()->all();
+        //return $props;
+        return ImageService::crop(request()->url,$props);
+    }
 }

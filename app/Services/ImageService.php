@@ -21,6 +21,29 @@ class ImageService {
         }
     }
 
+    public static function crop($url,$properties) {
+        try {
+
+            $imageBlob = file_get_contents($url);
+            $source = new \Imagick();
+            $source->readImageBlob($imageBlob);
+
+            $heightDistance = (($source->getImageHeight() - $properties["height"])/2);
+            $widthDistance = (($source->getImageWidth() - $properties["width"])/2);
+
+
+
+            $source->cropImage($properties["width"],$properties["height"],$widthDistance,$heightDistance);
+            $source->setImageFormat("png");
+            $response = Response::make($source, 200)->header("Content-Type","image/jpeg");
+            return $response;
+        }
+        catch(\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+
     private static function determineResizeDimensions(\Imagick $image,$properties) {
         $width = $image->getImageWidth();
         $height = $image->getImageHeight();

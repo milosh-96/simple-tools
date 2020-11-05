@@ -30,7 +30,7 @@
         <div class="columns small-12 medium-3" style="background:rgb(240,240,250)">
            @include('layout.sidenav')
         </div>
-        <div class="columns small-12 medium-9">
+        <div class="columns small-12 medium-8">
             <div class="row">
                 <div class="callout">
                     @yield('content')

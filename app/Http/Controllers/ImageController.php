@@ -11,4 +11,8 @@ class ImageController extends Controller
         $data = ["title"=>"Resize Image"];
         return view('image.resize')->with($data);
     }
+    public function cropImage() {
+        $data = ["title"=>"Crop Image"];
+        return view('image.crop')->with($data);
+    }
 }
