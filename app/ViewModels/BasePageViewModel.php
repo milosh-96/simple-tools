@@ -3,12 +3,15 @@ namespace App\ViewModels;
 
 abstract class BasePageViewModel {
 
-    public $items = array();
     public function __construct() {
         $this->title = "Page";
     }
 
-    protected function setTitle($value) {
+    public function getTitle() {
+        return $this->title;
+    }
+    public function setTitle($value) {
         $this->title = $value;
     }
+
 }

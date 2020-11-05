@@ -3,10 +3,9 @@ namespace App\ViewModels\Lists;
 use App\Services\ListService;
 class RandomListItemViewModel extends \App\ViewModels\BasePageViewModel {
     public $parsedItems;
-
     public $randomItemIndex = 0;
     public function __construct() {
-        $this->setTitle("Random List Item");
+        $this->setTitle("Get Random Item from List");
     }
 
 

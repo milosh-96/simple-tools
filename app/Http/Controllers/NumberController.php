@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\ViewModels\Numbers\RandomNumberViewModel;
 class NumberController extends Controller
 {
     public function random($min = 0,$max = 1500) {
         $min = request()->min ?? $min;
         $max = request()->max ?? $max;
+
+        $viewModel = new RandomNumberViewModel;
+
+        $viewModel->setMinNumber($min);
+        $viewModel->setMaxNumber($max);
+
+        if(request()->submitted == 1) {
+            $viewModel->getRandomNumber();
+        }
         $data = [
-            "title"=>"Random Number",
-            "min"=>$min,
-            "max"=>$max,
-            "number"=>\App\Services\NumberService::randomNumber($min,$max)
+            "viewModel"=>$viewModel
         ];
         return view('number.random')->with($data);
     }

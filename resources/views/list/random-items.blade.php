@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-    <h2>Get Random Item from List</h2>
+    <h2>{{$viewModel->getTitle()}}</h2>
     <hr>
    <form action="{{route('list.random')}}" method="POST">
     <div class="row">
@@ -9,8 +9,10 @@
             @csrf
             <input type="hidden" name="submitted" value="1">
             <div class="cell">
-                <em>Type as many items as you want. Don't forget to seperate them by comma (,).</em>
-               <textarea name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items}}</textarea>
+                <label for="items">
+                    <em>Enter as many items as you want. Don't forget to seperate them by comma (,).</em>
+                </label>
+               <textarea id="items" name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items}}</textarea>
             </div>
             <button class="button" type="submit">Get Random</button>
         </div>
