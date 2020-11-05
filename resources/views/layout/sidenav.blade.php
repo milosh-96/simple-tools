@@ -1,4 +1,4 @@
-<h3>List of available tools</h3>
+<h3>List of tools</h3>
 <ul class="vertical menu">
 
     <li style="background:rgba(0,0,0,0.05);padding:4px;margin-bottom:40px">
