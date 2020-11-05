@@ -10,7 +10,7 @@
         <div class="small-12 medium-8 columns">
             <div class="input-group">
                 <label>Enter Image URL: </label>
-                <input type="text"  name="url" value="{{old('url') ?? request()->url}}">
+                <input type="text"  name="url" value="{{old('url') ?? request()->url}}" onchange="getImageSize(this)">
             </div>
 
             @if(request()->submitted == 1)
@@ -19,17 +19,12 @@
         <img id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%">
         <small>image is resized, you can save it or open in a new tab to see it in full size.</small>
         @section('scriptSection')
+        @parent
 
 
 <script>
-    var img = document.getElementById("resultImage");
-    var imageObject = new Image();
-    imageObject.src = img.getAttribute("src");
-    //alert(imageObject.src);
-    imageObject.onload= function() {
-        document.getElementById("width").value = this.width;
-        document.getElementById("height").value = this.height;
-    };
+    var img = document.getElementById("resultImage").src;
+   setImageSize(img);
    // alert(img.height);
 </script>
 @endsection
@@ -61,3 +56,21 @@
 
 @endsection
 
+@section("scriptSection")
+<script>
+ function setImageSize(imgUrl) {
+    var imageObject = new Image();
+    imageObject.src = imgUrl;
+    //alert(imageObject.src);
+    imageObject.onload= function() {
+        document.getElementById("width").value = this.width;
+        document.getElementById("height").value = this.height;
+    };
+ }
+
+ function getImageSize(img) {
+     setImageSize(img.value);
+ }
+
+</script>
+@endsection
