@@ -11,6 +11,7 @@ class RandomNumberViewModel extends \App\ViewModels\BasePageViewModel {
         $this->setTitle("Get Random Number");
     }
 
+
     public function setMinNumber($value) {
         $this->min = $value;
     }

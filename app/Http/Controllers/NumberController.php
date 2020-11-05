@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ViewModels\Numbers\RandomNumberViewModel;
+use App\ViewModels\Numbers\RangeViewModel;
 class NumberController extends Controller
 {
     public function random($min = 0,$max = 1500) {
@@ -28,19 +29,28 @@ class NumberController extends Controller
         $end = request()->end ?? $end;
         $separator = request()->separator ?? ",";
         $messages = [];
+        $viewModel = new RangeViewModel;
         if($start < -50000) {
-            $messages[]="Sorry, min allowed number is -50.000";
+            $viewModel->insertError("Minimum value cannot be less than -50.000.");
             $start = -50000;
         }
         if($end > 50000) {
-            $messages[]="Max allowed number is 50.000";
+            $viewModel->insertError("Maximum value cannot be greater than 50.000.");
             $end = 50000;
         }
         if($end > 1000) {
-            $messages[]="Please be patient, it can take some time.";
+            $viewModel->insertError("Please, be patient. It can take some time to generate larger ranges.");
         }
 
-        $data = ["title"=>"Range of Numbers","start"=>$start,"end"=>$end,"result"=>\App\Services\NumberService::rangeOfNumbers($start,$end,$separator)];
+        if(request()->submitted == 1) {
+            $viewModel->setStart($start);
+            $viewModel->setEnd($end);
+            $viewModel->setSeparator($separator);
+            $viewModel->generateRange();
+        }
+        $data = [
+            "viewModel"=>$viewModel
+        ];
 
         session()->flash('messages',$messages);
 

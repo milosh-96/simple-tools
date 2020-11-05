@@ -2,28 +2,36 @@
 @section('content')
 <h2>Create a Range of Number</h2>
 
+@if($viewModel->getErrors())
+        <div class="callout warning">
+            @foreach($viewModel->getErrors() as $error)
+            {{$error}}
+            @endforeach
+        </div>
+@endif
+
 <form method="POST" action="{{route('number.range')}}">
         @csrf
-        <input type="hidden" name="submitted" value="true">
+        <input type="hidden" name="submitted" value="1">
     <div style="display:flex">
         <div class="input-group" style="width:30%">
             <label for="">Start</label>
-            <input type="text" name="start" value="{{$start}}">
+            <input type="text" name="start" value="{{$viewModel->start}}">
         </div>
         <div class="input-group" style="width:30%;">
             <label for="">End</label>
-            <input type="text" name="end" value="{{$end}}">
+            <input type="text" name="end" value="{{$viewModel->end}}">
         </div>
         <div class="input-group">
             <label for="">Separator</label>
             <select name="separator" id="">
-                <option value=",">Comma (,)</option>
-                <option value=".">Dot (.)</option>
-                <option value=":">Colon (:)</option>
-                <option value="-">Hyphen (-)</option>
-                <option value=";">Semicolon (;)</option>
-                <option value="space">Empty space (space key)</option>
-                <option value="tab">Tab (tab key)</option>
+              @foreach($viewModel->separatorList as $key=>$value)
+              @if($viewModel->separator == $key)
+              <option selected value="{{$key}}">{{$value}}</option>
+              @else
+              <option value="{{$key}}">{{$value}}</option>
+              @endif
+              @endforeach
             </select>
         </div>
     </div>
@@ -31,15 +39,8 @@
 </form>
 
     @if(request()->submitted)
-        @if(session()->has('messages'))
-        <div class="callout warning">
-            @foreach(session()->get('messages') as $msg)
-            {{$msg}}
-            @endforeach
-        </div>
-        @endif
     <hr>
-    <textarea disabled style="width:100%;resize:none;min-height:120px;height:auto;max-height:300px">{{$result}}</textarea >
+    <textarea disabled style="width:100%;resize:none;min-height:120px;height:auto;max-height:300px">{{$viewModel->generatedRange}}</textarea >
     @endif
 
 @endsection

@@ -1,8 +1,12 @@
 <?php
 namespace App\ViewModels;
 
+// all views should extend this class //
 abstract class BasePageViewModel {
 
+    public $title;
+
+    public $errors = [];
     public function __construct() {
         $this->title = "Page";
     }
@@ -12,6 +16,15 @@ abstract class BasePageViewModel {
     }
     public function setTitle($value) {
         $this->title = $value;
+    }
+
+
+    public function getErrors() {
+        return $this->errors;
+    }
+
+    public function insertError($value) {
+        $this->errors[] = $value;
     }
 
 }
