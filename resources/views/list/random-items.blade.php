@@ -10,7 +10,7 @@
             <input type="hidden" name="submitted" value="1">
             <div class="cell">
                 <em>Type as many items as you want. Don't forget to seperate them by comma (,).</em>
-               <textarea rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items}}</textarea>
+               <textarea name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items}}</textarea>
             </div>
             <button class="button" type="submit">Get Random</button>
         </div>
