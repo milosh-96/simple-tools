@@ -13,7 +13,10 @@ class ListController extends Controller
         //["title"=>"Get Random Item/s from List","items" => request()->items ?? ""];
        // return request()->all();
       if(request()->submitted) {
-        $viewModel->getParsedItems(request()->items);
+        $viewModel->setFormSubmitted();
+        $viewModel->setItemsString(request()->items);
+        $viewModel->setSeparator(request()->separator);
+        $viewModel->getParsedItems($viewModel->itemsString);
       }
 
       $data = ["viewModel"=>$viewModel];

@@ -17,6 +17,7 @@ class NumberController extends Controller
         $viewModel->setMaxNumber($max);
 
         if(request()->submitted == 1) {
+            $viewModel->setFormSubmitted();
             $viewModel->getRandomNumber();
         }
         $data = [
@@ -43,6 +44,7 @@ class NumberController extends Controller
         }
 
         if(request()->submitted == 1) {
+            $viewModel->setFormSubmitted();
             $viewModel->setStart($start);
             $viewModel->setEnd($end);
             $viewModel->setSeparator($separator);

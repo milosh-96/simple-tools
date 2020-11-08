@@ -5,6 +5,7 @@ namespace App\ViewModels;
 abstract class BasePageViewModel {
 
     public $title;
+    public $formSubmitted = false;
 
     public $errors = [];
     public function __construct() {
@@ -16,6 +17,10 @@ abstract class BasePageViewModel {
     }
     public function setTitle($value) {
         $this->title = $value;
+    }
+
+    public function setFormSubmitted() {
+        $this->formSubmitted = true;
     }
 
 

@@ -12,14 +12,20 @@
                 <label for="items">
                     <em>Enter as many items as you want. Don't forget to seperate them by comma (,).</em>
                 </label>
-               <textarea id="items" name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items}}</textarea>
+               <textarea id="items" name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items ?? $viewModel->defaultItemsString}}</textarea>
+            </div>
+            <div class="cell medium-2">
+                <div class="input-group">
+                    <span class="input-group-label">Separator</span>
+                    <input type="text" name="separator" id="separator" class="input-group-field" value="{{$viewModel->separator}}" />
+                </div>
             </div>
             <button class="button" type="submit">Get Random</button>
         </div>
     </div>
    </form>
-    @if(request()->submitted)
-        <hr>
+   @if($viewModel->formSubmitted)
+   <hr>
         <h3>Result: {{$viewModel->parsedItems[$viewModel->randomItemIndex]}}</h3>
         @if($viewModel->parsedItems)
             <ul class="list">

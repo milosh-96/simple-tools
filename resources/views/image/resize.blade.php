@@ -13,22 +13,11 @@
                 <input type="text"  name="url" value="{{old('url') ?? request()->url}}" onchange="getImageSize(this)">
             </div>
 
-            @if(request()->submitted == 1)
+            @if($viewModel->formSubmitted)
     <hr>
     <h3>Result</h3>
         <img id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%">
         <small>image is resized, you can save it or open in a new tab to see it in full size.</small>
-        @section('scriptSection')
-        @parent
-
-
-<script>
-    var img = document.getElementById("resultImage").src;
-   setImageSize(img);
-   // alert(img.height);
-</script>
-@endsection
-
     @endif
         </div>
         <div class="small-12 medium-4 columns">
@@ -73,4 +62,12 @@
  }
 
 </script>
+
+@if($viewModel->formSubmitted)
+<script>
+    var img = document.getElementById("resultImage").src;
+   setImageSize(img);
+   // alert(img.height);
+</script>
+@endif
 @endsection

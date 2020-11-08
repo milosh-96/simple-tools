@@ -23,7 +23,7 @@
 
 
     </form>
-    @if(request()->submitted)
+    @if($viewModel->formSubmitted)
     <hr>
     <textarea disabled style="font-size: 36px;padding:25px;height:150px;">{{$viewModel->randomNumber}}</textarea>
     @endif

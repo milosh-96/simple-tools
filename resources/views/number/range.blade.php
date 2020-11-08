@@ -38,8 +38,8 @@
     <button class="button" type="submit">Get</button>
 </form>
 
-    @if(request()->submitted)
-    <hr>
+@if($viewModel->formSubmitted)
+<hr>
     <textarea disabled style="width:100%;resize:none;min-height:120px;height:auto;max-height:300px">{{$viewModel->generatedRange}}</textarea >
     @endif
 
