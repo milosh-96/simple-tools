@@ -2,13 +2,7 @@
 @section('content')
 <h2>Create a Range of Number</h2>
 
-@if($viewModel->getErrors())
-        <div class="callout warning">
-            @foreach($viewModel->getErrors() as $error)
-            {{$error}}
-            @endforeach
-        </div>
-@endif
+@include('layout.errors')
 
 <form method="POST" action="{{route('number.range')}}">
         @csrf

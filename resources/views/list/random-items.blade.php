@@ -2,6 +2,9 @@
 @section('content')
 
     <h2>{{$viewModel->getTitle()}}</h2>
+
+    @include('layout.errors')
+
     <hr>
    <form action="{{route('list.random')}}" method="POST">
     <div class="row">
@@ -12,7 +15,7 @@
                 <label for="items">
                     <em>Enter as many items as you want. Don't forget to seperate them by comma (,).</em>
                 </label>
-               <textarea id="items" name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by comma (,)">{{request()->items ?? $viewModel->defaultItemsString}}</textarea>
+               <textarea id="items" name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by ( {{$viewModel->separator}} ) - {{$viewModel->defaultItemsString}}">{{$viewModel->itemsString}}</textarea>
             </div>
             <div class="cell medium-2">
                 <div class="input-group">

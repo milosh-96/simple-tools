@@ -23,6 +23,13 @@ class RandomListItemViewModel extends \App\ViewModels\BasePageViewModel {
         return $parsedItems;
     }
 
+    public function setFormSubmitted() {
+        if($this->itemsString == null) {
+            $this->insertError("The list is empty.");
+            return false;
+        }
+        $this->formSubmitted = true;
+    }
 
     public function setItemsString($value) {
         $this->itemsString = $value;
