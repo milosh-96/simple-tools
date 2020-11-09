@@ -46,6 +46,6 @@
                 </div>
             </div>
         </footer>
-    @yield('scriptSection')
+@yield('scriptSection')
 </body>
 </html>
