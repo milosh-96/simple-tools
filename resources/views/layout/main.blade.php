@@ -22,7 +22,7 @@
 
     gtag('config', "{{config('app.google_tag_id')}}");
     </script>
-    <script data-ad-client="ca-pub-{{config('app.google_tag_id')}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-{{config('app.google_adsense_pub_id')}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     @endif
 </head>
 <body>
