@@ -28,7 +28,6 @@
     @endif
 </head>
 <body>
-    {{$viewModel->getKeywords()}}
         <header style="background: #f2f2f2;margin-bottom:50px;">
            <div class="row">
             <div style="font-size: 24px;">
