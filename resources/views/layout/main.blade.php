@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" value="{{$viewModel->description ?? ""}}" />
-    <meta name="keywords" value="{{$viewModel->keywords ?? ""}}" />
+    <meta name="description" conent="{{$viewModel->getDescription() ?? ""}}" />
+    <meta name="keywords" conent="{{$viewModel->getKeywords() ?? ""}}" />
     <title>{{$title ?? $viewModel->getTitle() ?? "Home page"}} - Simple Tools - Do simple things SIMPLY</title>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"  crossorigin="anonymous">
