@@ -12,6 +12,14 @@ abstract class BasePageViewModel {
         $this->title = "Page";
     }
 
+    // check if the web site is running in production mode (env value is set) //
+    public function isProduction() {
+        if(config('app.env') == "production") {
+            return true;
+        }
+        return false;
+    }
+
     public function getTitle() {
         return $this->title;
     }

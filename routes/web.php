@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Response;
 */
 
 Route::get("/",function() {
-    $data = ["title"=>"Welcome"];
+    $data = ["viewModel"=>new \App\ViewModels\StaticPages\HomePageViewModel];
     return view("index")->with($data);
 });
 Route::prefix("/image")->group(function() {

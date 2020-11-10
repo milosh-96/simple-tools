@@ -13,6 +13,7 @@
         }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    @if($viewModel->isProduction())
     <script async src="https://www.googletagmanager.com/gtag/js?id={{config('app.google_tag_id')}}"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -21,6 +22,8 @@
 
     gtag('config', "{{config('app.google_tag_id')}}");
     </script>
+    <script data-ad-client="ca-pub-{{config('app.google_tag_id')}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    @endif
 </head>
 <body>
         <header style="background: #f2f2f2;margin-bottom:50px;">

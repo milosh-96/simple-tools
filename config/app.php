@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     'google_tag_id' => env('GOOGLE_TAG_ID','gtag'),
+    'google_adsense_pub_id' => env('GOOGLE_ADSENSE_PUB_ID','pub-id'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
