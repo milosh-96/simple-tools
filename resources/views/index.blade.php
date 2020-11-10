@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
     <h2>Welcome!</h2>
-    <p>Simple Tools is a place where you can do various simple things quicky.</p>
+    <p>Simple Tools is a place where you can do various simple things quickly.</p>
 
     <p>Do you want to quickly resize an image, get a random number, make a choice or something else?</p>
 
