@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'google_tag_id' => env('G_TAG_ID','gtag'),
+    'google_tag_id' => env('GOOGLE_TAG_ID','gtag'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
