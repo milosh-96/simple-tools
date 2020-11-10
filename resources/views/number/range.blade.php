@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-<h2>Create a Range of Number</h2>
+<h2>{{$viewModel->getTitle()}}</h2>
 
 @include('layout.errors')
 

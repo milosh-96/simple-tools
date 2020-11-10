@@ -17,8 +17,7 @@ abstract class BasePageViewModel {
 
     public function __construct() {
         $this->title = "Page";
-        $this->description = "Simple Tools is a collection of free tools for everyday use. No hidden paywalls!";
-        $this->keywords = ["simple tools","free","simpletools","tools","utilities","no cost"];
+
     }
 
     // check if the web site is running in production mode (env value is set) //
@@ -42,19 +41,24 @@ abstract class BasePageViewModel {
     }
     //
     public function getDescription() {
-        return $this->description;
+        // if child class set description a space will be added between that and default string. otherwise, no//
+        return sprintf("%s%s",($this->description) ? $this->description . " " : "","Simple Tools is a collection of free tools for everyday use. No hidden paywalls!");
     }
     public function setDescription($value) {
         $this->description = $value;
     }
     //
     public function getKeywords() {
-        return implode(",",$this->keywords);
+        // merge page-specific keywords with global //
+        return implode(",",array_merge($this->keywords,["simple tools","free","simpletools","tools","utilities","no cost"]));
     }
     public function setKeywords(array $value) {
         $this->keywords = $value;
     }
 
+
+
+    // check if form is submitted, used for single page tools (both get & post)
     public function setFormSubmitted() {
         $this->formSubmitted = true;
     }

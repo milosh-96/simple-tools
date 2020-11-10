@@ -22,6 +22,8 @@ class RangeViewModel extends \App\ViewModels\BasePageViewModel {
     public function __construct()
     {
         $this->setTitle("Generate Range of Numbers");
+        $this->setDescription("Quickly get a range of numbers with a selected separator.");
+        $this->setKeywords(["range of numbers","numbers","range","list of numbers","one by one number"]);
     }
 
     // setters //
