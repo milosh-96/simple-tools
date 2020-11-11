@@ -28,13 +28,15 @@
     @endif
 </head>
 <body>
-        <header style="background: #f2f2f2;margin-bottom:50px;">
+        <header>
            <div class="row">
-            <div style="font-size: 24px;padding:10px 0">
-                <a href="/" style="">
-                    simple<strong>tools<span style="color:blue">:</span></strong>
-                </a>
-            </div>
+                <div class="columns small-12">
+                <div style="font-size: 24px;padding:10px 0">
+                    <a href="/">
+                        simple<strong>tools<span style="color:blue">:</span></strong>
+                    </a>
+                </div>
+                </div>
            </div>
         </header>
     <div class="row">
@@ -43,7 +45,7 @@
         </div>
         <div class="columns small-12 medium-8">
             <div class="row">
-                <div class="callout">
+                <div>
                     @yield('content')
 
                 </div>
