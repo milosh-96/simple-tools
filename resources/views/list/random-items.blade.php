@@ -15,7 +15,8 @@
                 <label for="items">
                     <em>Enter as many items as you want. Don't forget to seperate them by comma (,).</em>
                 </label>
-               <textarea id="items" name="items" rows="3" style="width:100%;resize: none" placeholder="Separate Item by ( {{$viewModel->separator}} ) - {{$viewModel->defaultItemsString}}">{{$viewModel->itemsString}}</textarea>
+               <textarea id="items" name="items" rows="3" style="width:100%;resize: none"
+                placeholder="{{$viewModel->defaultItemsString}}">{{$viewModel->itemsString}}</textarea>
             </div>
             <div class="cell medium-2">
                 <div class="input-group">

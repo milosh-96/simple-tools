@@ -31,6 +31,7 @@ class ImageController extends Controller
             $viewModel->setSourceUrl(request()->url);
             $viewModel->setNewWidth(request()->width);
             $viewModel->setNewHeight(request()->height);
+            $viewModel->setColor(request()->color);
             $viewModel->setResizedImageUrl();
         }
 

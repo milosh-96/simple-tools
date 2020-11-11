@@ -1,9 +1,10 @@
 @extends('layout.main')
 @section('content')
 
-    <h2>Crop Image</h2>
+    <h2>{{$viewModel->getTitle()}}</h2>
+    <p>{{$viewModel->getTagline()}}</p>
     <hr>
-   <form action="{{route('image.crop')}}" method="POST">
+    <form action="{{route('image.crop')}}" method="POST">
     @csrf
     <input type="hidden" name="submitted" value="1">
     <div class="row">
@@ -30,6 +31,11 @@
             <div class="input-group">
                 <label>New Height: </label>
                 <input id="height" type="text" id="height" name="height" value="{{old('height') ?? request()->height}}">
+            </div>
+            <div class="input-group">
+                <label>Overlay Background Color</label>
+                <small><em>if the crop dimensions are larger than the original image</em></small>
+                <input type="color" name="color" id="color" value="#cccccc">
             </div>
         </div>
     </div>

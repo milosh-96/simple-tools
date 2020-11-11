@@ -6,8 +6,10 @@ abstract class BasePageViewModel {
 
     // meta
     public $title;
+    public $tagline;
     public $description;
     public $keywords = [];
+
     //
 
 
@@ -17,6 +19,7 @@ abstract class BasePageViewModel {
 
     public function __construct() {
         $this->title = "Page";
+
 
     }
 
@@ -38,6 +41,13 @@ abstract class BasePageViewModel {
     }
     public function setTitle($value) {
         $this->title = $value;
+    }
+    //
+    public function getTagline() {
+        return $this->tagline;
+    }
+    public function setTagline($value) {
+        $this->tagline = $value;
     }
     //
     public function getDescription() {

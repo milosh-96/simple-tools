@@ -23,6 +23,8 @@ class ImageService {
 
     public static function crop($url,$properties) {
         try {
+            $bgLayer = new \Imagick();
+            $bgLayer->newImage($properties["width"],$properties["height"],$properties["color"]);
 
             $imageBlob = file_get_contents($url);
             $source = new \Imagick();
@@ -34,8 +36,9 @@ class ImageService {
 
 
             $source->cropImage($properties["width"],$properties["height"],$widthDistance,$heightDistance);
-            $source->setImageFormat("png");
-            $response = Response::make($source, 200)->header("Content-Type","image/jpeg");
+            $bgLayer->compositeImage($source,\imagick::COMPOSITE_OVER, 0, 0);
+            $bgLayer->setImageFormat("png");
+            $response = Response::make($bgLayer, 200)->header("Content-Type","image/jpeg");
             return $response;
         }
         catch(\Exception $e) {

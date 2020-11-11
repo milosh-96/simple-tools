@@ -30,13 +30,10 @@
 <body>
         <header style="background: #f2f2f2;margin-bottom:50px;">
            <div class="row">
-            <div style="font-size: 24px;">
+            <div style="font-size: 24px;padding:10px 0">
                 <a href="/" style="">
-                    <p style="display: inline-block">
-                        simple<strong>tools<span style="color:blue">:</span></strong>
-                    </p>
+                    simple<strong>tools<span style="color:blue">:</span></strong>
                 </a>
-                <a href="#">do simple - simply!</a>
             </div>
            </div>
         </header>
