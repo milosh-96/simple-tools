@@ -2,6 +2,7 @@
 @section('content')
 
     <h2>{{$viewModel->getTitle()}}</h2>
+    @include('layout.errors')
     <hr>
    <form action="{{route('image.resize')}}" method="POST">
     @csrf

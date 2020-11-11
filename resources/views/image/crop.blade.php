@@ -3,6 +3,8 @@
 
     <h2>{{$viewModel->getTitle()}}</h2>
     <p>{{$viewModel->getTagline()}}</p>
+
+    @include('layout.errors')
     <hr>
     <form action="{{route('image.crop')}}" method="POST">
     @csrf

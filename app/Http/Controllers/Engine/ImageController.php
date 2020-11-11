@@ -19,4 +19,9 @@ class ImageController extends Controller
         //return $props;
         return ImageService::crop(request()->url,$props);
     }
+    public function fitToCanvas() {
+        $props = request()->all();
+        //return $props;
+        return ImageService::fitToCanvas(request()->url,$props);
+    }
 }

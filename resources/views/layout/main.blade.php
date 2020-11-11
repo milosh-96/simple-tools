@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{{$viewModel->getDescription() ?? ""}}" />
+    <meta name="description" content="{{$viewModel->getDescription() ?? $viewModel->getTagline() ?? ""}}" />
     <meta name="keywords" content="{{$viewModel->getKeywords() ?? ""}}" />
     <title>{{$title ?? $viewModel->getTitle() ?? "Home page"}} - Simple Tools - Do simple things SIMPLY</title>
     <!-- Compressed CSS -->

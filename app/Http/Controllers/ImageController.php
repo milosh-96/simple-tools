@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\ImageService;
 use App\ViewModels\Images\ResizeImageViewModel;
 use App\ViewModels\Images\CropImageViewModel;
+use App\ViewModels\Images\FitToCanvasViewModel;
 class ImageController extends Controller
 {
 
@@ -37,5 +38,28 @@ class ImageController extends Controller
 
         $data = ["viewModel"=>$viewModel];
         return view('image.crop')->with($data);
+    }
+    public function fitToCanvas() {
+        $viewModel = new FitToCanvasViewModel;
+
+        if(request()->submitted == 1) {
+            $viewModel->setFormSubmitted();
+            $viewModel->setSourceUrl(request()->url);
+            $viewModel->setCanvasWidth(request()->canvasWidth);
+            $viewModel->setCanvasHeight(request()->canvasHeight);
+            $viewModel->setPadding(request()->padding);
+            $viewModel->setColor(request()->color);
+            if(request()->transparent == true) {
+                $viewModel->setTransparent(true);
+            }
+            if($viewModel->transparent) {
+                $viewModel->setColor("transparent");
+                $viewModel->insertError("Notice: Background of the image is transparent.");
+            }
+            $viewModel->setResizedImageUrl();
+        }
+
+        $data = ["viewModel"=>$viewModel];
+        return view('image.fitToCanvas')->with($data);
     }
 }
