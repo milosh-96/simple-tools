@@ -12,7 +12,8 @@ class SitemapService {
            new Link(route('number.range')),
            new Link(route('list.random')),
            new Link(route('image.resize')),
-           new Link(route('image.crop'))
+           new Link(route('image.crop')),
+           new Link(route('text.notes'))
         ];
         $this->setLinks($links);
     }

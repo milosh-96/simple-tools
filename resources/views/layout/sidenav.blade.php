@@ -41,4 +41,12 @@
                </li>
         </ul>
     </li>
+    <li>
+        <strong>Other Tools & Utilities</strong>
+        <ul class="nested vertical menu">
+               <li>
+                <a href="{{route('text.notes')}}">Simple Notes -  a text box</a>
+               </li>
+        </ul>
+    </li>
 </ul>

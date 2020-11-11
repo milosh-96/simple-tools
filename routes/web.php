@@ -29,6 +29,10 @@ Route::prefix("/list")->group(function() {
     Route::match(["get","post"],"random",[App\Http\Controllers\ListController::class,"random"])->name("list.random");
 });
 
+Route::prefix("/text")->group(function() {
+    Route::get('/notes',[App\Http\Controllers\TextController::class,"notes"])->name('text.notes');
+});
+
 
 
 
