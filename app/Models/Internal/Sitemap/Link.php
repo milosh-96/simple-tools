@@ -13,7 +13,7 @@ class Link
     public function __construct($url,$changeFrequency = "yearly",$priority =  "0.9") {
         $this->url = $url;
         $this->changeFrequency = $changeFrequency;
-        $this->priority = $priority;
+        $this->changeFrequency = $changeFrequency;
         $this->lastUpdated = date("Y-m-d");
     }
 }

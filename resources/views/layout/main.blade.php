@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-        <footer style="margin-top:300px;background:#f2f2f2">
+        <footer style="margin-top:30px;background:#f2f2f2">
             <div class="row">
                 <div style="padding: 10px 0">
                     &copy; {{date("Y")}}. Simple Tools. All Rights Reserved.
