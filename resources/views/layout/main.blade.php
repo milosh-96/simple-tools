@@ -9,6 +9,7 @@
     <title>{{$title ?? $viewModel->getTitle() ?? "Home page"}} - Simple Tools - Do simple things SIMPLY</title>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css"  crossorigin="anonymous">
     <style>
         a {
             color:inherit;
