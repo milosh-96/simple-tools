@@ -5,9 +5,7 @@
 
     <p>Do you want to quickly resize an image, get a random number, make a choice or something else?</p>
 
-    <p>Here you can find a lot of tools.</p>
-
-    <h3>Api</h3>
-    <p>Are you a developer?
-        You can use our tools via API endpoint and have these features on your web site or app.</p>
+    <p>Here you can find a lot of tools. New tools & utilities are under construction and will be available soon!
+    </p>
+    <strong>Checkout the list on the left.</strong>
 @endsection
