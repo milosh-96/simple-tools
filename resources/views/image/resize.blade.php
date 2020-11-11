@@ -16,7 +16,7 @@
             @if($viewModel->formSubmitted)
     <hr>
     <h3>Result</h3>
-        <img id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%">
+        <div><img id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%"></div>
         <small>image is resized, you can save it or open in a new tab to see it in full size.</small>
     @endif
         </div>
