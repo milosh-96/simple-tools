@@ -33,10 +33,17 @@ class ImageService {
             $heightDistance = (($source->getImageHeight() - $properties["height"])/2);
             $widthDistance = (($source->getImageWidth() - $properties["width"])/2);
 
-
+            $overlayX = 0;
+            $overlayY = 0;
+            if(($properties["width"] - $source->getImageWidth() / 2)>0) {
+                $overlayX = ($properties["width"] - $source->getImageWidth()) / 2;
+            }
+            if(($properties["height"] - $source->getImageHeight() / 2)>0) {
+                $overlayY = ($properties["height"] - $source->getImageHeight()) / 2;
+            }
 
             $source->cropImage($properties["width"],$properties["height"],$widthDistance,$heightDistance);
-            $bgLayer->compositeImage($source,\imagick::COMPOSITE_OVER, 0, 0);
+            $bgLayer->compositeImage($source,\imagick::COMPOSITE_OVER, $overlayX , $overlayY);
             $bgLayer->setImageFormat("png");
             $response = Response::make($bgLayer, 200)->header("Content-Type","image/jpeg");
             return $response;
