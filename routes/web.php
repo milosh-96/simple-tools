@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Response;
 Route::get("/",function() {
     $data = ["viewModel"=>new \App\ViewModels\StaticPages\HomePageViewModel];
     return view("index")->with($data);
-});
+})->name('home');
 Route::prefix("/image")->group(function() {
     Route::match(["get","post"],"/resize",[App\Http\Controllers\ImageController::class,"resizeImage"])->name("image.resize");
     Route::match(["get","post"],"/crop",[App\Http\Controllers\ImageController::class,"cropImage"])->name("image.crop");
@@ -30,6 +30,14 @@ Route::prefix("/list")->group(function() {
 });
 
 
+
+
+//
+
+Route::get('/sitemap',function() {
+    $sitemapService = new App\Services\Internal\SitemapService();
+    return $sitemapService->generate();
+});
 
 
 
