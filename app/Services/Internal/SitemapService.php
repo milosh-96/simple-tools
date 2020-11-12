@@ -29,7 +29,7 @@ class SitemapService {
             $xml .= sprintf("<url>%s</url>",$urlObj);
         }
         $xml .= '</urlset>';
-        return response($xml, 200)->header("Content-Type","text/xml");
+        return $xml;
     }
 
     public function setLinks(array $links) {

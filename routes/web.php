@@ -41,7 +41,7 @@ Route::prefix("/text")->group(function() {
 
 Route::get('/sitemap',function() {
     $sitemapService = new App\Services\Internal\SitemapService();
-    return $sitemapService->generate();
+    return response($sitemapService->generate(), 200)->header("Content-Type","application/xml");
 });
 
 
