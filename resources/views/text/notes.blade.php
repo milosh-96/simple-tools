@@ -1,8 +1,9 @@
 @extends('layout.main')
 @section('content')
-    <h2>{{$viewModel->getTitle()}}</h2>
-    <p>{{$viewModel->getTagline()}}</p>
-    <hr>
+<h1>{{$viewModel->getTitle()}}</h1>
+<p>{{$viewModel->getTagline()}}</p>
+@include('layout.errors')
+<hr>
         <div class="row">
             <div class="columns small-12">
                 <textarea

@@ -1,9 +1,8 @@
 @extends('layout.main')
 @section('content')
 
-    <h2>{{$viewModel->getTitle()}}</h2>
+     <h1>{{$viewModel->getTitle()}}</h1>
     <p>{{$viewModel->getTagline()}}</p>
-
     @include('layout.errors')
     <hr>
     <form action="{{route('image.crop')}}" method="POST">

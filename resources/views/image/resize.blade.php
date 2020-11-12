@@ -1,9 +1,10 @@
 @extends('layout.main')
 @section('content')
 
-    <h2>{{$viewModel->getTitle()}}</h2>
-    @include('layout.errors')
-    <hr>
+<h1>{{$viewModel->getTitle()}}</h1>
+<p>{{$viewModel->getTagline()}}</p>
+@include('layout.errors')
+<hr>
    <form action="{{route('image.resize')}}" method="POST">
     @csrf
     <input type="hidden" name="submitted" value="1">
