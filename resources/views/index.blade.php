@@ -7,5 +7,4 @@
 
     <p>Here you can find a lot of tools. New tools & utilities are under construction and will be available soon!
     </p>
-    <strong>Checkout the list on the left.</strong>
 @endsection
