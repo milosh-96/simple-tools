@@ -36,8 +36,7 @@
                 <input id="padding" type="text" id="padding" name="padding" value="{{old('padding') ?? request()->padding ?? 0}}">
             </div>
             <div class="input-group">
-                <label>Canvas Background Color</label>
-                <small><em>Choose a color</em></small>
+                <label>Background Color</label>
                 <input type="color" name="color" id="color" value="{{$viewModel->color ?? old('color') ?? '#cccccc'}}" />
                 <label for="transparent">Transparent?</label>
                 <input type="checkbox" name="transparent" id="transparent" {{$viewModel->transparent ? "checked" : ""}}>
