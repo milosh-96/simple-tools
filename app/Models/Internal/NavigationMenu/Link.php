@@ -12,5 +12,12 @@ class Link
         $this->url = $url;
     }
 
+    public function isActive() {
+        if(url()->current() == $this->url) {
+            return true;
+        }
+        return false;
+    }
+
 
 }

@@ -4,14 +4,13 @@
 </div>
 
 <div id="nav-menu">
-<h3>List of tools</h3>
 <ul class="vertical menu">
     @foreach($navMenuItems as $section)
     <li class="{{$section['class'] ?? ''}}">
-        <strong>{{$section["title"]}}</strong>
+        <h3 class="caption">{{$section["title"]}}</h3>
         <ul class="nested vertical menu">
             @foreach($section["items"] as $item)
-            <li>
+            <li class="item{{($item->isActive())  ? ' current' : ''}}">
                 <a href="{{$item->url}}">{{$item->title}}</a>
             </li>
             @endforeach
