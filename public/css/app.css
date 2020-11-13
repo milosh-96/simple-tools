@@ -3,9 +3,6 @@ header {
     background: #f2f2f2;
 }
 
-.no-js .title-bar {
-    display: none;
-  }
 
 @media screen and (max-width: 40em) {
 
@@ -17,16 +14,6 @@ header {
         margin-bottom:30px;
         color: #f2f2f2;
     }
-
-
-
-        .no-js .top-bar {
-          display: block;
-        }
-
-        .no-js .title-bar {
-          display: none;
-      }
 
 
 }
