@@ -14,6 +14,7 @@ class SitemapService {
            new Link(route('image.resize')),
            new Link(route('image.crop')),
            new Link(route('image.fitToCanvas')),
+           new Link(route('image.svgConverter')),
            new Link(route('text.notes'))
         ];
         $this->setLinks($links);

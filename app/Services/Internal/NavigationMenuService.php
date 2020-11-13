@@ -27,6 +27,7 @@ class NavigationMenuService {
         $items["images"] = [
             "title"=>"Image Tools",
             "items"=>[
+                new Link("SVG Converter",route('image.svgConverter')),
                 new Link("Fit Image to Canvas",route('image.fitToCanvas')),
                 new Link("Resize Image",route('image.resize')),
                 new Link("Crop Image",route('image.crop'))

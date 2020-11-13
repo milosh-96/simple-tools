@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageService
 {
+
+    public static $fileTypes = ["png"=>"image/png","jpg"=>"image/jpg","jpeg"=>"image/jpeg","bmp"=>"image/bmp"];
+
+    
     public static function resize($url, $properties, $imagickReturn = false)
     {
 
@@ -69,8 +73,16 @@ class ImageService
         }
     }
 
-    public static function svgConverter() {
+    public static function svgConverter($url,$properties) {
 
+        $svgData = file_get_contents($url);
+
+        $source = new \Imagick();
+        $source->setBackgroundColor(new \ImagickPixel("transparent"));
+        $source->readImageBlob($svgData);
+        $source->setImageFormat($properties["fileType"]);
+        $response = Response::make($source, 200);
+        return $response->header("Content-Type", self::$fileTypes[$properties["fileType"]]);
     }
 
     public static function fitToCanvas($url, $properties)

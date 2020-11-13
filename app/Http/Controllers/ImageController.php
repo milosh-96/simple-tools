@@ -9,6 +9,8 @@ use App\Services\ImageService;
 use App\ViewModels\Images\ResizeImageViewModel;
 use App\ViewModels\Images\CropImageViewModel;
 use App\ViewModels\Images\FitToCanvasViewModel;
+use App\ViewModels\Images\SvgConverterViewModel;
+
 class ImageController extends Controller
 {
 
@@ -68,6 +70,19 @@ class ImageController extends Controller
         }
 
         $data = ["viewModel"=>$viewModel];
-        return view('image.fitToCanvas')->with($data);
+        return view('image.fit-to-canvas')->with($data);
+    }
+
+    public function svgConverter() {
+        $viewModel = new SvgConverterViewModel;
+        if(request()->submitted == 1) {
+            $viewModel->setFormSubmitted();
+            $viewModel->setSourceUrl(request()->url);
+            $viewModel->setSelectedType(request()->fileType);
+            $viewModel->setResizedImageUrl();
+        }
+
+        $data = ["viewModel"=>$viewModel];
+        return view('image.svg-converter')->with($data);
     }
 }

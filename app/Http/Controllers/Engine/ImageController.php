@@ -24,4 +24,9 @@ class ImageController extends Controller
         //return $props;
         return ImageService::fitToCanvas(request()->url,$props);
     }
+    public function svgConverter() {
+        $props = request()->all();
+        //return $props;
+        return ImageService::svgConverter(request()->url,$props);
+    }
 }

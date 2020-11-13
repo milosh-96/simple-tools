@@ -43,6 +43,7 @@ Route::prefix("/image")->group(function() {
     Route::match(["get","post"],"/resize",[App\Http\Controllers\ImageController::class,"resizeImage"])->name("image.resize");
     Route::match(["get","post"],"/crop",[App\Http\Controllers\ImageController::class,"cropImage"])->name("image.crop");
     Route::match(["get","post"],"/fit-to-canvas",[App\Http\Controllers\ImageController::class,"fitToCanvas"])->name("image.fitToCanvas");
+    Route::match(["get","post"],"/svg-converter",[App\Http\Controllers\ImageController::class,"svgConverter"])->name("image.svgConverter");
 });
 Route::prefix("/number")->group(function() {
     Route::match(["get","post"],"random",[App\Http\Controllers\NumberController::class,"random"])->name("number.random");
@@ -84,6 +85,8 @@ Route::prefix("engine")->group(function() {
         Route::any("/resize",[App\Http\Controllers\Engine\ImageController::class,"resizeImage"])->name("engine.image.resize");
         Route::any("/crop",[App\Http\Controllers\Engine\ImageController::class,"cropImage"])->name("engine.image.crop");
         Route::any("/fit-to-canvas",[App\Http\Controllers\Engine\ImageController::class,"fitToCanvas"])->name("engine.image.fitToCanvas");
+        Route::any("/svg-converter",[App\Http\Controllers\Engine\ImageController::class,"svgConverter"])->name("engine.image.svgConverter");
+
     });
 });
 
