@@ -9,6 +9,4 @@
     </p>
 @endsection
 
-@section('additionalHead')
-<link href="{{env('APP_URL')}}" rel="canonical" />
-@endsection
+@section('additionalHead')<link href="{{route('home')}}" rel="canonical" />@endsection
