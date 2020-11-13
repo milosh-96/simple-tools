@@ -17,13 +17,15 @@ class ImageService
             $source = new \Imagick();
             $source->readImageBlob($imageBlob);
 
+            $mimeType = self::getMimeType($imageBlob);
+
             $dimensions = self::determineResizeDimensions($source, $properties);
 
             $source->resizeImage($dimensions["width"], $dimensions["height"], \Imagick::FILTER_BOX, true);
             if ($imagickReturn) {
                 return $source;
                 }
-            $response = Response::make($source, 200)->header("Content-Type", self::getMimeType(($imageBlob)));
+            $response = Response::make($source, 200)->header("Content-Type", $mimeType->mime);
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -52,10 +54,15 @@ class ImageService
                 $offsetY = ($properties["height"] - $source->getImageHeight()) / 2;
             }
 
+            $mimeType = self::getMimeType($imageBlob);
+
+
             $source->cropImage($properties["width"], $properties["height"], $widthDistance, $heightDistance);
             $bgLayer->compositeImage($source, \imagick::COMPOSITE_OVER, $offsetX, $offsetY);
-            $bgLayer->setImageFormat("png");
-            $response = Response::make($bgLayer, 200)->header("Content-Type", self::getMimeType($imageBlob));
+            $bgLayer->setImageFormat($mimeType->extension);
+
+
+            $response = Response::make($bgLayer, 200)->header("Content-Type",$mimeType->mime);
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -90,8 +97,8 @@ class ImageService
             $overlay->compositeImage($resizedImage, \Imagick::COMPOSITE_OVER, $offsetX, $offsetY);
             
             $mimeType = self::getMimeType(file_get_contents(($url)));
-            $overlay->setImageFormat((explode("/",$mimeType)[1]));
-            $response = Response::make($overlay, 200)->header("Content-Type",$mimeType);
+            $overlay->setImageFormat($mimeType->extension);
+            $response = Response::make($overlay, 200)->header("Content-Type",$mimeType->mime);
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -130,6 +137,7 @@ class ImageService
     private static function getMimeType($value) {
         $file_info = new \finfo(FILEINFO_MIME_TYPE);
         $mime_type = $file_info->buffer($value);
-        return $mime_type;
+      
+        return (object)["mime"=>$mime_type,"extension"=> explode("/",$mime_type)[1]];
     }
 }
