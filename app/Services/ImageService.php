@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ImageService
 {
@@ -10,7 +11,12 @@ class ImageService
     {
 
         try {
-            $imageBlob = file_get_contents($url);
+            if($properties["uploaded"]) {
+                $imageBlob = Storage::get($properties["url"]);
+            }
+            else {
+                $imageBlob = file_get_contents($url);
+            }
             $source = new \Imagick();
             $source->readImageBlob($imageBlob);
 
@@ -64,7 +70,7 @@ class ImageService
     {
         try {
             $imageWidth = ($properties["canvasHeight"] - $properties["padding"]);
-            
+
             if($properties["canvasWidth"] < $properties["canvasHeight"]) {
                 $imageWidth = ($properties["canvasWidth"] - $properties["padding"]);
             }
@@ -89,6 +95,7 @@ class ImageService
             return $e->getMessage();
         }
     }
+
 
 
     private static function determineResizeDimensions(\Imagick $image, $properties)

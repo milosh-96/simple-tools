@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Services\ImageService;
 use App\ViewModels\Images\ResizeImageViewModel;
 use App\ViewModels\Images\CropImageViewModel;
@@ -12,10 +14,16 @@ class ImageController extends Controller
 
     public function resizeImage() {
         $viewModel = new ResizeImageViewModel;
-
         if(request()->submitted == 1) {
             $viewModel->setFormSubmitted();
-            $viewModel->setSourceUrl(request()->url);
+            if(request()->image != null) {
+                $name = "public/temp-uploads/".Str::uuid().".png";
+                Storage::put($name,request()->image->get());
+                $viewModel->setSourceUrl($name);
+                $viewModel->setUploadedFile(true);
+            }else {
+                $viewModel->setSourceUrl(request()->url);
+            }
             $viewModel->setNewWidth(request()->width);
             $viewModel->setNewHeight(request()->height);
             $viewModel->setResizedImageUrl();

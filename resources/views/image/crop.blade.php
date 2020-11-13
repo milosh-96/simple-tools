@@ -10,10 +10,7 @@
     <input type="hidden" name="submitted" value="1">
     <div class="row">
         <div class="small-12 medium-8 columns">
-            <div class="input-group">
-                <label>Enter Image URL: </label>
-                <input type="text"  name="url" value="{{old('url') ?? request()->url}}" onchange="getImageSize(this)">
-            </div>
+            @include('image.components.file-handler')
 
             @if($viewModel->formSubmitted)
     <hr>

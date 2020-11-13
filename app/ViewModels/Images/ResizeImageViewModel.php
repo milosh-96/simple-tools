@@ -7,6 +7,7 @@ class ResizeImageViewModel extends \App\ViewModels\BasePageViewModel {
     public $resizedImageUrl;
 
     public $sourceUrl;
+    public $uploadedFile = false;
     public $newWidth;
     public $newHeight;
     public function __construct() {
@@ -14,11 +15,12 @@ class ResizeImageViewModel extends \App\ViewModels\BasePageViewModel {
     }
 
     public function setSourceUrl($value) {$this->sourceUrl = $value;}
+    public function setUploadedFile($value) {$this->uploadedFile = $value;}
     public function setNewWidth($value) {$this->newWidth = $value;}
     public function setNewHeight($value) {$this->newHeight = $value;}
 
     public function setResizedImageUrl() {
-        $props = ["url"=>$this->sourceUrl,"width"=>$this->newWidth,"height"=>$this->newHeight];
+        $props = ["uploaded"=>$this->uploadedFile,"url"=>$this->sourceUrl,"width"=>$this->newWidth,"height"=>$this->newHeight];
         $this->resizedImageUrl = route('engine.image.resize',$props);
     }
 }
