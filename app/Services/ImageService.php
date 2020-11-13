@@ -11,12 +11,8 @@ class ImageService
     {
 
         try {
-            if($properties["uploaded"]) {
-                $imageBlob = Storage::get($properties["url"]);
-            }
-            else {
-                $imageBlob = file_get_contents($url);
-            }
+
+            $imageBlob = file_get_contents($url);
             $source = new \Imagick();
             $source->readImageBlob($imageBlob);
 
