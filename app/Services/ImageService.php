@@ -13,6 +13,7 @@ class ImageService
         try {
 
             $imageBlob = file_get_contents($url);
+            
             $source = new \Imagick();
             $source->readImageBlob($imageBlob);
 
@@ -21,8 +22,8 @@ class ImageService
             $source->resizeImage($dimensions["width"], $dimensions["height"], \Imagick::FILTER_BOX, true);
             if ($imagickReturn) {
                 return $source;
-            }
-            $response = Response::make($source, 200)->header("Content-Type", "image/jpeg");
+                }
+            $response = Response::make($source, 200)->header("Content-Type", self::getMimeType(($imageBlob)));
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -54,13 +55,16 @@ class ImageService
             $source->cropImage($properties["width"], $properties["height"], $widthDistance, $heightDistance);
             $bgLayer->compositeImage($source, \imagick::COMPOSITE_OVER, $offsetX, $offsetY);
             $bgLayer->setImageFormat("png");
-            $response = Response::make($bgLayer, 200)->header("Content-Type", "image/jpeg");
+            $response = Response::make($bgLayer, 200)->header("Content-Type", self::getMimeType($imageBlob));
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
+    public static function svgConverter() {
+
+    }
 
     public static function fitToCanvas($url, $properties)
     {
@@ -84,14 +88,15 @@ class ImageService
             $overlay = new \Imagick();
             $overlay->newImage($properties["canvasWidth"], $properties["canvasHeight"], $properties["color"] ?? "transparent");
             $overlay->compositeImage($resizedImage, \Imagick::COMPOSITE_OVER, $offsetX, $offsetY);
-            $overlay->setImageFormat("png");
-            $response = Response::make($overlay, 200)->header("Content-Type", "image/jpeg");
+            
+            $mimeType = self::getMimeType(file_get_contents(($url)));
+            $overlay->setImageFormat((explode("/",$mimeType)[1]));
+            $response = Response::make($overlay, 200)->header("Content-Type",$mimeType);
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
-
 
 
     private static function determineResizeDimensions(\Imagick $image, $properties)
@@ -120,5 +125,11 @@ class ImageService
             return ["width" => $width, "height" => $height];
         }
         return ["width" => $width, "height" => $height];
+    }
+
+    private static function getMimeType($value) {
+        $file_info = new \finfo(FILEINFO_MIME_TYPE);
+        $mime_type = $file_info->buffer($value);
+        return $mime_type;
     }
 }
