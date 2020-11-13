@@ -10,6 +10,7 @@
             <div class="small-12 columns">
                 @include('image.components.file-handler')
                 
+
                 <div class="columns small-12 medium-4">
                 <div class="input-group">
                 <label for="fileType">Select File Type</label>
@@ -20,7 +21,13 @@
                     </select>
                 </div>
                 </div>
-                @if($viewModel->formSubmitted)
+               
+            </div>
+        </div>
+        <button class="button" type="submit">Get</button>
+        <div class="row">
+            <div class="columns small-12">
+            @if($viewModel->formSubmitted)
     <hr>
     <h3>Result</h3>
         <div style="padding: 20px 0">
@@ -30,9 +37,7 @@
     @endif
 
             </div>
-           
-
         </div>
-        <button class="button" type="submit">Get</button>
+           
     </form>
 @endsection

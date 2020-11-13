@@ -14,6 +14,7 @@ class SvgConverterViewModel extends \App\ViewModels\Images\BaseImageViewModel {
         $this->setTagline("Convert SVG to any image format.");
         $this->setDescription("SVG Converter allows you to easily convert SVG files to PNG or any other image format.");
     }
+    public function setSourceUrl($value) {$this->sourceUrl = $value;}
 
 
     public function setResizedImageUrl() {
