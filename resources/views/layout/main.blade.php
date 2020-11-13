@@ -42,9 +42,9 @@
         <div class="columns small-12 medium-3 nav-menu-wrapper">
            @include('layout.sidenav')
         </div>
-        <div class="columns small-12 medium-8" id="page">
+        <div class="columns small-12 medium-9" id="page">
                     @yield('content')
-            </div>
+        </div>
      </div>
     <footer style="margin-top:30px;background:#f2f2f2">
             <div class="row">
