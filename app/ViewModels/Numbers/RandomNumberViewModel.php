@@ -9,6 +9,7 @@ class RandomNumberViewModel extends \App\ViewModels\BasePageViewModel {
     public $randomNumber;
     public function __construct() {
         $this->setTitle("Get Random Number");
+        $this->setDescription("Easily get a random number.");
     }
 
 

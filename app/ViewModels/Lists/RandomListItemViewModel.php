@@ -13,6 +13,7 @@ class RandomListItemViewModel extends \App\ViewModels\BasePageViewModel {
 
     public function __construct() {
         $this->setTitle("Get Random Item from List");
+        $this->setDescription("Easily get random item from your list. You can enter as many items as you want.");
         $this->setDefaultItemsString();
     }
 
