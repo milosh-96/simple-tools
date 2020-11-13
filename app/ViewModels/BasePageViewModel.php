@@ -8,6 +8,7 @@ abstract class BasePageViewModel {
     public $title;
     public $tagline;
     public $description;
+    public $content;
     public $keywords = [];
 
     //
@@ -65,8 +66,16 @@ abstract class BasePageViewModel {
         // merge page-specific keywords with global //
         return implode(",",array_merge($this->keywords,["simple tools","free","simpletools","tools","utilities","no cost","api","rest api","developers","commercial use","tools for developers","developer tools"]));
     }
+
     public function setKeywords(array $value) {
         $this->keywords = $value;
+    }
+
+    public function getContent() {
+        return $this->content;
+    }
+    public function setContent($value) {
+        $this->content = $value;
     }
 
 

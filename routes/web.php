@@ -17,6 +17,28 @@ Route::get("/",function() {
     $data = ["viewModel"=>new \App\ViewModels\StaticPages\HomePageViewModel];
     return view("index")->with($data);
 })->name('home');
+Route::prefix("/pages")->group(function() {
+    Route::get("/terms-of-service",function() {
+        $viewModel = new \App\ViewModels\StaticPages\StaticPageViewModel;
+
+        $viewModel->setTitle("Terms of Service");
+        $viewModel->setTagline("Few things about this web site...");
+        $viewModel->setContent("
+            In simple words, you can do whatever you want here. There are no limits but here are
+            couple of things you should know.<hr>
+            <ol>
+            <li>All tools are tested as much as possible, however, we aren't responsible in any way for
+            incorrect output. Please review all results!</li>
+            <li>You can input image from any web site as long as the web site allows you to do so. Some web sites
+            may block our requests.</li>
+            <li>Hotlinking is enabled. However, we may ban web sites for excessive use. Please note that this is not
+            a CDN (content delivery network) service so it's advised to download end results.</li>
+            <ol>
+        ");
+        $data = ["viewModel"=>$viewModel];
+        return view($viewModel->getView())->with($data);
+    })->name('tos');
+});
 Route::prefix("/image")->group(function() {
     Route::match(["get","post"],"/resize",[App\Http\Controllers\ImageController::class,"resizeImage"])->name("image.resize");
     Route::match(["get","post"],"/crop",[App\Http\Controllers\ImageController::class,"cropImage"])->name("image.crop");

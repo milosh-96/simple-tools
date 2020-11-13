@@ -50,6 +50,7 @@
             <div class="row">
                 <div class="columns">
                     <small>&copy; {{date("Y")}}. Simple Tools. All Rights Reserved.</small>
+                    <small><a href="{{route('tos')}}">Terms of Service</a></small>
                 </div>
             </div>
     </footer>
