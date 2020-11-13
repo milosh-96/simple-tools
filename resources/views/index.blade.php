@@ -8,3 +8,7 @@
     <p>Here you can find a lot of tools. New tools & utilities are under construction and will be available soon!
     </p>
 @endsection
+
+@section('additionalHead')
+<link href="{{env('APP_URL')}}" rel="canonical" />
+@endsection
