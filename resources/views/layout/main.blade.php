@@ -27,42 +27,38 @@
     @endif
 </head>
 <body>
-        <header>
-           <div class="row">
-                <div class="columns small-12">
-                <div style="font-size: 24px;padding:10px 0">
-                    <a href="/">
-                        simple<strong>tools<span style="color:blue">:</span></strong>
-                    </a>
-                </div>
-                </div>
-           </div>
-        </header>
+    <header>
+        <div class="row">
+            <div class="columns small-12">
+            <div style="font-size: 24px;padding:10px 0">
+                <a href="/">
+                    simple<strong>tools<span style="color:#003366">:</span></strong>
+                </a>
+            </div>
+            </div>
+        </div>
+    </header>
     <div class="row">
-        <div class="columns small-12 medium-3" style="background:rgb(240,240,250)">
+        <div class="columns small-12 medium-3 nav-menu-wrapper">
            @include('layout.sidenav')
         </div>
-        <div class="columns small-12 medium-8">
-            <div class="row">
-                <div>
+        <div class="columns small-12 medium-8" id="page">
                     @yield('content')
-
-                </div>
             </div>
-        </div>
-    </div>
-        <footer style="margin-top:30px;background:#f2f2f2">
+     </div>
+    <footer style="margin-top:30px;background:#f2f2f2">
             <div class="row">
-                <div style="padding: 10px 0">
-                    &copy; {{date("Y")}}. Simple Tools. All Rights Reserved.
+                <div class="columns">
+                    <small>&copy; {{date("Y")}}. Simple Tools. All Rights Reserved.</small>
                 </div>
             </div>
-        </footer>
+    </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js" integrity="sha512-9cXmvmK1gIDw3Tol6Xg/1SUls/CvBMgedu1aDjT519sQzy7jk+LoezyQqlzClW2LgXww4xEyuqtofg7PtWteLQ==" crossorigin="anonymous"></script>
         <script>
             var menu = new Foundation.ResponsiveMenu($("#menu"));
             var elem = new Foundation.ResponsiveToggle($("#toggleMenu"));
+            var elem2 = new Foundation.ResponsiveToggle($("#closeMenu"));
 
 
         </script>

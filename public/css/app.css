@@ -1,6 +1,21 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css";
 header {
-    background: #f2f2f2;margin-bottom:50px;
+    background: #f2f2f2;
 }
-.combined {
-   
+.nav-menu-wrapper {
+}
+#nav-menu {
+}
+
+@media screen and (max-width: 40em) {
+
+    .nav-menu-wrapper,.title-bar {
+        background:#003366;
+    }
+    .nav-menu-wrapper {
+        border-bottom:3px solid #ccc;
+        margin-bottom:30px;
+        color: #f2f2f2;
+    }
+
 }
