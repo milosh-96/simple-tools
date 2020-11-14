@@ -36,7 +36,7 @@ class NavigationMenuService {
         $items["lists"] = [
             "title"=>"List Tools",
             "items"=>[
-                new Link("Random Item from the List",route('list.random')),
+                new Link("Random Item from a List",route('list.random')),
             ]
         ];
         $items["others"] = [
