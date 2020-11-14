@@ -8,7 +8,6 @@ abstract class BasePageViewModel {
     public $title;
     public $tagline;
     public $description;
-    public $content;
     public $keywords = [];
 
     //
@@ -71,12 +70,7 @@ abstract class BasePageViewModel {
         $this->keywords = $value;
     }
 
-    public function getContent() {
-        return $this->content;
-    }
-    public function setContent($value) {
-        $this->content = $value;
-    }
+
 
 
 

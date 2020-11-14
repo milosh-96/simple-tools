@@ -3,6 +3,6 @@
     <h1>{{$viewModel->getTitle()}}</h1>
     <p>{{$viewModel->getTagline()}}</p>
     <p>
-        {!!$viewModel->getContent()!!}
+       @include($viewModel->getContentView())
     </p>
 @endsection
