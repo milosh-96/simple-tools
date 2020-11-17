@@ -15,6 +15,10 @@ a {
     text-decoration: none;
 }
 
+#logo a:hover {
+    color:inherit;
+}
+
 @media screen and (min-width: 40em) {
     header {
         margin-bottom:30px;
