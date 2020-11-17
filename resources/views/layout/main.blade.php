@@ -28,10 +28,7 @@
         <div class="row">
             <div class="columns small-12">
             <div style="font-size: 24px;padding:10px 0">
-                <a href="/">
-                    simple<strong>tools</strong>
-                </a>
-                <span style="color:#003366">:</span>online
+                <a href="/">simple<strong>tools</strong></a><span style="color:#003366">:</span><em>online</em>
             </div>
             </div>
         </div>
