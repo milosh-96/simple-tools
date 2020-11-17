@@ -30,8 +30,8 @@
             <div style="font-size: 24px;padding:10px 0">
                 <a href="/">
                     simple<strong>tools<span style="color:#003366">:</span></strong>
-                    online
                 </a>
+                online
             </div>
             </div>
         </div>
