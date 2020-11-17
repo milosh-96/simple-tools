@@ -17,6 +17,8 @@ Route::get("/",function() {
     $data = ["viewModel"=>new \App\ViewModels\StaticPages\HomePageViewModel];
     return view("index")->with($data);
 })->name('home');
+
+
 Route::prefix("/pages")->group(function() {
     Route::get("/terms-of-service",function() {
         $viewModel = new \App\ViewModels\StaticPages\StaticPageViewModel;

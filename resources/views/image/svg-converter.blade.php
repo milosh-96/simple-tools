@@ -9,7 +9,7 @@
         <div class="row">
             <div class="small-12 columns">
                 @include('image.components.file-handler')
-                
+
 
                 <div class="columns small-12 medium-4">
                 <div class="input-group">
@@ -21,7 +21,7 @@
                     </select>
                 </div>
                 </div>
-               
+
             </div>
         </div>
         <button class="button" type="submit">Get</button>
@@ -38,6 +38,6 @@
 
             </div>
         </div>
-           
+
     </form>
 @endsection

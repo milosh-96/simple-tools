@@ -21,7 +21,7 @@ class SvgConverterViewModel extends \App\ViewModels\Images\BaseImageViewModel {
         $props = ["url"=>$this->sourceUrl,"fileType"=>$this->selectedType];
         $this->resizedImageUrl = route('engine.image.svgConverter',$props);
     }
-   
+
 
     public function setSelectedType($value) {
         $this->selectedType = $value;

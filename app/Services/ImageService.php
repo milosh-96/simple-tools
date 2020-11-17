@@ -10,14 +10,14 @@ class ImageService
 
     public static $fileTypes = ["png"=>"image/png","jpg"=>"image/jpg","jpeg"=>"image/jpeg","bmp"=>"image/bmp"];
 
-    
+
     public static function resize($url, $properties, $imagickReturn = false)
     {
 
         try {
 
             $imageBlob = file_get_contents($url);
-            
+
             $source = new \Imagick();
             $source->readImageBlob($imageBlob);
 
@@ -76,13 +76,13 @@ class ImageService
     public static function svgConverter($url,$properties) {
 
         $svgData = file_get_contents($url);
-
         $source = new \Imagick();
         $source->setBackgroundColor(new \ImagickPixel("transparent"));
         $source->readImageBlob($svgData);
         $source->setImageFormat($properties["fileType"]);
         $response = Response::make($source, 200);
-        return $response->header("Content-Type", self::$fileTypes[$properties["fileType"]]);
+        $contentType = self::$fileTypes[$properties["fileType"]];
+        return $response->header("Content-Type",$contentType );
     }
 
     public static function fitToCanvas($url, $properties)
@@ -107,7 +107,7 @@ class ImageService
             $overlay = new \Imagick();
             $overlay->newImage($properties["canvasWidth"], $properties["canvasHeight"], $properties["color"] ?? "transparent");
             $overlay->compositeImage($resizedImage, \Imagick::COMPOSITE_OVER, $offsetX, $offsetY);
-            
+
             $mimeType = self::getMimeType(file_get_contents(($url)));
             $overlay->setImageFormat($mimeType->extension);
             $response = Response::make($overlay, 200)->header("Content-Type",$mimeType->mime);
@@ -149,7 +149,7 @@ class ImageService
     private static function getMimeType($value) {
         $file_info = new \finfo(FILEINFO_MIME_TYPE);
         $mime_type = $file_info->buffer($value);
-      
+
         return (object)["mime"=>$mime_type,"extension"=> explode("/",$mime_type)[1]];
     }
 }

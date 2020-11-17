@@ -3,8 +3,8 @@
   <div class="title-bar-title">Menu</div>
 </div>
 
-<div id="nav-menu">
-<ul class="vertical menu">
+<div id="nav-menu" style="height: 100vh;overflow-y:scroll">
+<ul class="vertical menu" >
     @foreach($navMenuItems as $section)
     <li class="{{$section['class'] ?? ''}}">
         <h3 class="caption">{{$section["title"]}}</h3>
