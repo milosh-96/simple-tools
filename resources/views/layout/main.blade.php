@@ -27,7 +27,7 @@
     <header>
         <div class="row">
             <div class="columns small-12">
-           	<div id="top-logo"></div>
+           	<a href="{{route('home')}}" id="top-logo">Home page</a>
             </div>
         </div>
     </header>
