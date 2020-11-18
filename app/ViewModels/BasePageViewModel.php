@@ -15,6 +15,7 @@ abstract class BasePageViewModel {
 
     public $formSubmitted = false;
     public $errors = [];
+    public $notes = [];
 
 
     public function __construct() {
@@ -86,5 +87,12 @@ abstract class BasePageViewModel {
 
     public function insertError($value) {
         $this->errors[] = $value;
+    }
+    public function getNotes() {
+        return $this->notes;
+    }
+
+    public function insertNote($value) {
+        $this->notes[] = $value;
     }
 }

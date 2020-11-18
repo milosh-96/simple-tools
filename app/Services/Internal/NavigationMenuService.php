@@ -43,6 +43,7 @@ class NavigationMenuService {
             "title"=>"Other Tools & Utilities",
             "items"=>[
                 new Link("Quick Notes",route('text.notes')),
+                new Link("Bitcoin Exchange Rate Table",route('converters.bitcoin.chart')),
             ]
         ];
 

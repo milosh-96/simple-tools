@@ -1,3 +1,4 @@
+@if(isset($navMenuItems))
 <div class="title-bar" id="toggleMenu" data-responsive-toggle="nav-menu" data-hide-for="medium">
   <button class="menu-icon" type="button" data-toggle></button>
   <div class="title-bar-title">Menu</div>
@@ -24,3 +25,4 @@
     <div class="title-bar-title">Close</div>
   </div>
 </div>
+@endif

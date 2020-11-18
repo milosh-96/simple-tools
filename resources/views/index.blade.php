@@ -8,6 +8,7 @@
     <p>Here you can find a lot of tools. New tools & utilities are under construction and will be available soon!
     </p>
     <hr>
+
    <!-- <h3>Tips</h3>-->
 @endsection
 

@@ -18,6 +18,12 @@ Route::get("/",function() {
     return view("index")->with($data);
 })->name('home');
 
+Route::prefix('converters')->group(function() {
+    Route::prefix('bitcoin')->group(function() {
+        Route::get('chart',[App\Http\Controllers\Converters\BitcoinController::class,"chart"])->name('converters.bitcoin.chart');
+    });
+});
+
 
 Route::prefix("/pages")->group(function() {
     Route::get("/terms-of-service",function() {
