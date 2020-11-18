@@ -27,9 +27,7 @@
     <header>
         <div class="row">
             <div class="columns small-12">
-            <div style="font-size: 24px;padding:10px 0" id="logo">
-                <a href="/">simple<strong>tools</strong></a><span style="color:#003366">://</span><em>online</em>
-            </div>
+           	<div id="top-logo"></div>
             </div>
         </div>
     </header>
