@@ -1,6 +1,8 @@
 <?php
 namespace App\Services\Internal;
 use  App\Models\Internal\Sitemap\Link;
+use Spatie\Sitemap\SitemapGenerator;
+
 class SitemapService {
 
     public $links = [];
@@ -21,6 +23,9 @@ class SitemapService {
         $this->setLinks($links);
     }
     public function generate() {
+
+
+        return [SitemapGenerator::create('https://simpletoolsweb.com')->writeToFile("sitemap.xml")];
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
         foreach($this->links as $link) {
