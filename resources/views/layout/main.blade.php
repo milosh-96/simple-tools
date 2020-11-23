@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{{$viewModel->getDescription() ?? $viewModel->getTagline() ?? ""}}" />
-    <title>{{$title ?? $viewModel->getTitle() ?? "Home page"}} - {{env('APP_NAME')}} - Do simple things SIMPLY</title>
-    <!-- Compressed CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" />    <link rel="stylesheet" href="/css/app.css"  crossorigin="anonymous">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     @if($viewModel->isProduction())
     <script async src="https://www.googletagmanager.com/gtag/js?id={{config('app.google_tag_id')}}"></script>
     <script>
@@ -21,6 +12,14 @@
     </script>
     <script data-ad-client="ca-pub-{{config('app.google_adsense_pub_id')}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     @endif
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{{$viewModel->getDescription() ?? $viewModel->getTagline() ?? ""}}" />
+    <title>{{$title ?? $viewModel->getTitle() ?? "Home page"}} - {{env('APP_NAME')}} - Do simple things SIMPLY</title>
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" />    <link rel="stylesheet" href="/css/app.css"  crossorigin="anonymous">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     @yield('additionalHead')
 </head>
 <body>
