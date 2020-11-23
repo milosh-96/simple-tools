@@ -23,10 +23,6 @@ class SitemapService {
         $this->setLinks($links);
     }
     public function generate() {
-
-
-        SitemapGenerator::create('https://simpletoolsweb.com')->writeToFile( storage_path(). "/sitemap.xml");
-        return file_get_contents(storage_path()."/sitemap.xml");
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
         foreach($this->links as $link) {
