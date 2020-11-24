@@ -24,6 +24,11 @@ Route::prefix('converters')->group(function() {
     });
 });
 
+Route::prefix('auth')->group(function() {
+    Route::prefix('account')->group(function() {
+        Route::get('login',[App\Http\Controllers\Auth\AccountController::class,"login"])->name('login');
+    });
+});
 
 Route::prefix("/pages")->group(function() {
     Route::get("/terms-of-service",function() {
