@@ -2,6 +2,10 @@
 
 namespace {{ namespace }};
 
-class {{ class }}ViewModel extends \App\ViewModels\BasePageViewModel
+class {{ class }} extends \App\ViewModels\BasePageViewModel
 {
+     public function __construct()
+    {
+        $this->setTitle("{{class}}");
+    }
 }
