@@ -1,0 +1,7 @@
+<?php
+
+namespace {{ namespace }};
+
+class {{ class }}ViewModel extends \App\ViewModels\BasePageViewModel
+{
+}
