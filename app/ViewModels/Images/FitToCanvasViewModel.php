@@ -17,7 +17,7 @@ class FitToCanvasViewModel extends \App\ViewModels\BasePageViewModel {
     public function __construct() {
         $this->setTitle("Fit Image to Canvas");
         $this->setTagline(
-            "With this tool you can easily put image of any size in a box. For example, you can fit large image to 256x128 box. The image 
+            "With this tool you can easily put image of any size in a box. For example, you can fit large image to 256x128 box. The image
 will be resized so it can populate the canvas. You can also specify vertical and horizontal spacing."
         );
         $this->setKeywords([

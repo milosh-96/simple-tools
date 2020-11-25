@@ -16,7 +16,9 @@
             @if($viewModel->formSubmitted)
     <hr>
     <h3>Result</h3>
-        <div><img class="callout" id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%"></div>
+        <div style="text-align: center"><img style="max-width:100%;text-align:center;display:block;border:1px solid rgba(0,0,0,0.6);box-shadow:2px 2px 2px #333; {{($viewModel->transparent) ? 'background:pink' : ''}}" id="resultImage" src="{{$viewModel->resizedImageUrl}}" alt="" max-width="100%"></div>
+        <small>Borders and shadows aren't parts of the image.</small>
+
         @endif
         </div>
         <div class="small-12 medium-4 columns">
@@ -47,4 +49,7 @@
 
     <button class="button" type="submit">Get</button>
 </form>
+
+@include('layout.notes')
+
 @endsection

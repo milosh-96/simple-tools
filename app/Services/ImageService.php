@@ -99,7 +99,7 @@ class ImageService
             $offsetY = $properties["padding"] / 2; //($properties["canvasHeight"] -  $resizedImage->getImageHeight()) / 2 ;   $offsetX = $properties["padding"] / 2; //(($properties["canvasWidth"] - $properties["padding"]) / 2);
 
             if($properties["canvasWidth"] <= $properties["canvasHeight"]) {
-                $offsetX = $properties["padding"] / 2;
+                $offsetX = ($properties["canvasWidth"] - $resizedImage->getImageWidth()) / 2;
                 $offsetY = ($properties["canvasHeight"] - $resizedImage->getImageHeight()) / 2; //(($properties["canvasWidth"] - $properties["padding"]) / 2);
 
             }
