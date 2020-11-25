@@ -11,14 +11,14 @@
                     <div class="columns small-12">
                         <div class="input-group">
                             <label for="">Email</label>
-                            <input type="text" name="email" placeholder="Your email address">
+                            <input type="text" name="user_name" placeholder="Your email address">
                         </div>
                         <div class="input-group">
                             <label for="">Password</label>
-                            <input type="text" name="email" placeholder="Your password">
+                            <input type="password" name="password" placeholder="Your password">
                         </div>
                         <div class="input-group">
-                            <button class="button">Login</button>
+                            <button class="button" type="submit">Login</button>
                         </div>
                     </div>
                     <hr>

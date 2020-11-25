@@ -5,25 +5,29 @@
             <h1>{{$viewModel->getTitle()}}</h1>
             <p>{{$viewModel->getTagline()}}</p>
             <hr>
-            <form action="{{route('login')}}" method="POST">
+            <form action="{{route('register')}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="columns small-12">
                         <div class="input-group">
+                            <label for="">Name</label>
+                            <input type="text" name="name" placeholder="Your Name">
+                        </div>
+                        <div class="input-group">
                             <label for="">User Name</label>
-                            <input type="text" name="text" placeholder="Your User Name">
+                            <input type="text" name="username" placeholder="Your User Name">
                         </div>
                         <div class="input-group">
                             <label for="">Email Address</label>
-                            <input type="text" name="text" placeholder="Your Email Address">
+                            <input type="text" name="email" placeholder="Your Email Address">
                         </div>
                         <div class="input-group">
                             <label for="">Password</label>
-                            <input type="text" name="text" placeholder="Your Password">
+                            <input type="password" name="password" placeholder="Your Password">
                         </div>
                         <div class="input-group">
                             <label for="">Confirm Password</label>
-                            <input type="text" name="text" placeholder="Confirm password by typing it again.">
+                            <input type="password" name="password_confirmation" placeholder="Confirm password by typing it again.">
                         </div>
 
                         <div class="input-group">
