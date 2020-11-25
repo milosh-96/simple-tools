@@ -22,7 +22,8 @@
                         </div>
                     </div>
                     <hr>
-                    <a href="#">Forgot password?</a>
+                    <a href="#">Forgot password?</a> |
+                    <a href="{{route('register')}}">Register a new account</a>
                 </div>
             </form>
         </div>

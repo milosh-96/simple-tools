@@ -13,10 +13,24 @@ class RegistrationPageTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
-    {
-        $response = $this->get('/');
 
+     /** @test */
+    public function frontendTest()
+    {
+        $response = $this->get('/auth/account/register');
         $response->assertStatus(200);
+        $response->assertSee([
+            "Register",
+            "User Name",
+            "Email Address",
+            "Password",
+            "Register"
+        ]);
+        $response->assertSee([
+            "Your Email Address",
+            "Your Password",
+            "Your User Name",
+            "Confirm password by typing it again."
+        ]);
     }
 }
