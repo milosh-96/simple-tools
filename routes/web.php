@@ -26,7 +26,7 @@ Route::prefix('converters')->group(function() {
 
 Route::prefix('auth')->group(function() {
     Route::prefix('account')->group(function() {
-        Route::get('login',[App\Http\Controllers\Auth\AccountController::class,"login"])->name('login');
+        Route::match(['get','post'],'login',[App\Http\Controllers\Auth\AccountController::class,"login"])->name('login');
     });
 });
 

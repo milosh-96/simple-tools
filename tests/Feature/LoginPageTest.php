@@ -13,11 +13,18 @@ class LoginPageTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    /** @test */
+    public function frontendTest()
     {
         $this->withoutExceptionHandling();
         $response = $this->get('/auth/account/login');
         $response->assertSee("Login");
+        $response->assertSee("Password");
+        $response->assertSee("Email");
+        $response->assertSee("Your email address");
+        $response->assertSee("Your password");
+        $response->assertSee("Login");
+        $response->assertSee("Forgot password?");
         $response->assertStatus(200);
     }
 }

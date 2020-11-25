@@ -24,6 +24,8 @@ abstract class BasePageViewModel {
 
     }
 
+
+
     // check if the web site is running in production mode (env value is set) //
     public function isProduction() {
         if(config('app.env') == "production") {
