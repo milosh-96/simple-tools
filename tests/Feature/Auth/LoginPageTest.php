@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Auth;;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -25,6 +25,7 @@ class LoginPageTest extends TestCase
         $response->assertSee("Your password");
         $response->assertSee("Login");
         $response->assertSee("Forgot password?");
+        $response->assertSee("Register a new account");
         $response->assertStatus(200);
     }
 }
