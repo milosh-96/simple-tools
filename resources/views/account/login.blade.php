@@ -5,6 +5,7 @@
             <h1>{{$viewModel->getTitle()}}</h1>
             <p>{{$viewModel->getTagline()}}</p>
             <hr>
+            @include('layout.errors')
             <form action="{{route('login')}}" method="POST">
                 @csrf
                 <div class="row">
