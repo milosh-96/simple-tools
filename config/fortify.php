@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'prefix' => 'auth',
+    'prefix' => 'auth/account',
 
     'domain' => null,
 
