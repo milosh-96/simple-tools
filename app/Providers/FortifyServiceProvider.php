@@ -8,6 +8,7 @@ use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use \App\ViewModels\Auth\Account\LoginPageViewModel;
 use App\ViewModels\Auth\Account\RegistrationPageViewModel;
+use App\ViewModels\StaticPages\StaticPageViewModel;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 
@@ -40,6 +41,15 @@ Fortify::registerView(function () {
 
     return view('account.register')->with($data);
 });
+
+Fortify::verifyEmailView(function () {
+    $viewModel = new StaticPageViewModel();
+    $viewModel->setTitle("Confirm Account");
+    $viewModel->setTagline("Thank you for registering. We sent you an email with the verification link.");
+    $data = ["viewModel"=>$viewModel];
+    return view('account.verify')->with($data);
+});
+
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);

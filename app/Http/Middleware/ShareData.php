@@ -18,6 +18,7 @@ class ShareData
     public function handle(Request $request, Closure $next)
     {
         view()->share("navMenuItems",(new NavigationMenuService)->getItems());
+
         return $next($request);
     }
 }

@@ -1,5 +1,6 @@
 @extends('layout.main')
 @section('content')
+@include('layout.errors')
     <h1>Welcome!</h1>
     <p>Simple Tools is a place where you can do various simple things quickly.</p>
 
