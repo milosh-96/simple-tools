@@ -1,6 +1,8 @@
 <?php
 namespace App\ViewModels;
 
+use Illuminate\Support\Facades\Auth;
+
 // all views should extend this class //
 abstract class BasePageViewModel {
 
@@ -20,8 +22,7 @@ abstract class BasePageViewModel {
 
     public function __construct() {
         $this->title = "Page";
-
-
+        print_r(auth()->user());
     }
 
 
