@@ -46,7 +46,7 @@ return [
     |
     */
 
-    'username' => 'user_name',
+    'username' => 'email',
 
     'email' => 'email',
 
