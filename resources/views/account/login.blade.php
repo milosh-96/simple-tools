@@ -12,7 +12,7 @@
                     <div class="columns small-12">
                         <div class="input-group">
                             <label for="">Email</label>
-                            <input type="text" name="email" placeholder="Your email address">
+                            <input type="text" name="user_name" placeholder="Your email address">
                         </div>
                         <div class="input-group">
                             <label for="">Password</label>
