@@ -20,11 +20,3 @@
 </div>
 @endif
 
-@if(session('status'))
-<div class="callout success">
-    <div>
-       {{session('status')}}
-    </div>
-</div>
-@endif
-

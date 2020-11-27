@@ -45,6 +45,7 @@
            @include('layout.sidenav')
         </div>
         <div class="columns small-12 medium-9" id="page">
+                    @include('layout.notifications')
                     @yield('content')
         </div>
      </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\Account\UserRegisteredEvent;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 /*
@@ -99,3 +100,9 @@ Route::prefix("engine")->group(function() {
 });
 
 
+
+
+Route::get('test',function() {
+    event(new UserRegisteredEvent());
+    return redirect()->route('home');
+});

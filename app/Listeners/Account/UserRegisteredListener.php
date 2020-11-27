@@ -25,6 +25,6 @@ class UserRegisteredListener
      */
     public function handle($event)
     {
-        //
+       session()->flash('status','We sent an activation link. Please confirm your account.');
     }
 }
