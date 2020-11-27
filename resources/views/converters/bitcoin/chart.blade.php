@@ -24,3 +24,13 @@
     </table>
     @include('layout.notes')
 @endsection
+
+@section('json-ld')
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Table",
+      "about": "{{$viewModel->getTitle()}}"
+    }
+    </script>
+@endsection

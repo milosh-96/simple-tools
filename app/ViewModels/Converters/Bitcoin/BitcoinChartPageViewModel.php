@@ -5,7 +5,7 @@ class BitcoinChartPageViewModel extends \App\ViewModels\BasePageViewModel {
 
     private $data = [];
     public function __construct() {
-        $this->setTitle("Bitcoin Exchange Rate Table");
+        $this->setTitle("Bitcoin Exchange Rates Table");
         $this->setTagline("Get the latest Bitcoin Exchange rates for major currencies.");
         $this->setDescription("Get the latest Bitcoin Exchange rates for major currencies.");
         $this->insertNote("Source: Blockchain.info");
