@@ -26,3 +26,15 @@
   </div>
 </div>
 @endif
+
+
+@section('layoutScriptSection')
+@parent
+<script>
+        var menu = new Foundation.ResponsiveMenu($("#menu"));
+        var elem = new Foundation.ResponsiveToggle($("#toggleMenu"));
+        var elem2 = new Foundation.ResponsiveToggle($("#closeMenu"));
+
+       
+    </script>
+    @endsection
