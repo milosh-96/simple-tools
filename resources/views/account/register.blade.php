@@ -24,11 +24,11 @@
                         </div>
                         <div class="input-group">
                             <label for="">Password</label>
-                            <input type="password" name="password" placeholder="Your Password">
+                            <input type="password" name="password" placeholder="Your Password" autocomplete="new-password">
                         </div>
                         <div class="input-group">
                             <label for="">Confirm Password</label>
-                            <input type="password" name="password_confirmation" placeholder="Confirm password by typing it again.">
+                            <input type="password" name="password_confirmation" placeholder="Confirm password by typing it again." autocomplete="new-password">
                         </div>
 
                         <div class="input-group">

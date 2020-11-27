@@ -14,11 +14,11 @@
                 </div>
                 <div class="input-group">
                     <label for="">New Password</label>
-                    <input type="password" name="password">
+                    <input type="password" name="password" autocomplete="new-password">
                 </div>
                 <div class="input-group">
                     <label for="">New Password Confirmation</label>
-                    <input type="password" name="password_confirmation">
+                    <input type="password" name="password_confirmation" autocomplete="new-password">
                 </div>
                 <div class="input-group">
                     <button class="button">Reset</button>
