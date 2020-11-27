@@ -21,6 +21,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" />    <link rel="stylesheet" href="/css/app.css"  crossorigin="anonymous">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     @yield('additionalHead')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "{{$viewModel->getTitle()}}",
+            "description": "{{$viewModel->getDescription()}}",
+            "publisher":"{{env('APP_NAME')}}"
+        }
+        </script>
     @yield('json-ld')
 </head>
 <body>
