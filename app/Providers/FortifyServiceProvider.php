@@ -42,12 +42,28 @@ Fortify::registerView(function () {
     return view('account.register')->with($data);
 });
 
+Fortify::requestPasswordResetLinkView(function () {
+    $viewModel = new StaticPageViewModel();
+    $viewModel->setTitle("Request Password Reset");
+    $viewModel->setTagline("If you forgot your password you can request set new one in few steps.");
+    $data = ["viewModel"=>$viewModel];
+    return view('account.forgot-password')->with($data);
+});
+
 Fortify::verifyEmailView(function () {
     $viewModel = new StaticPageViewModel();
     $viewModel->setTitle("Confirm Account");
     $viewModel->setTagline("Thank you for registering. We sent you an email with the verification link.");
     $data = ["viewModel"=>$viewModel];
     return view('account.verify')->with($data);
+});
+
+Fortify::resetPasswordView(function ($request) {
+    $viewModel = new StaticPageViewModel();
+    $viewModel->setTitle("Reset Password");
+    $viewModel->setTagline("This the last step in the password reset process. Enter your new password below.");
+    $data = ["viewModel"=>$viewModel,"request" => $request];
+    return view('account.reset-password')->with($data);
 });
 
         Fortify::createUsersUsing(CreateNewUser::class);
