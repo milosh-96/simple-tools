@@ -9,7 +9,7 @@
 @if(auth()->user() && !auth()->user()->hasVerifiedEmail())
 <div class="callout primary">
     <div>
-       Please verify your account.
+       Please verify your account. Check your Inbox.
     </div>
 </div>
 @endif
