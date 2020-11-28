@@ -46,6 +46,14 @@ class NavigationMenuService {
                 new Link("Bitcoin Exchange Rates Table",route('converters.bitcoin.chart')),
             ]
         ];
+        $items["text-tools"] = [
+            "title"=>"Text Tools & Utilities",
+            "position"=>3,
+            "items"=>[
+                new Link("Reverse Text",route('text.reverse-text')),
+                new Link("Quick Notes",route('text.notes')),
+            ]
+        ];
 
 
         $items["random"] = [

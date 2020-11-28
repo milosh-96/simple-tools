@@ -18,6 +18,7 @@ class SitemapService {
            new Link(route('image.fitToCanvas')),
            new Link(route('image.svgConverter')),
            new Link(route('text.notes')),
+           new Link(route('text.reverse-text')),
            new Link(route('converters.bitcoin.chart'))
         ];
         $this->setLinks($links);
