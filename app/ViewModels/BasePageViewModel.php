@@ -21,6 +21,7 @@ abstract class BasePageViewModel {
 
     //
     public $result;
+    public $submittedValues = array();
     //
 
 
@@ -86,7 +87,13 @@ abstract class BasePageViewModel {
         return $this->result;
     }
     public function setResult($value) {
-        return $this->result = $value;
+        $this->result = $value;
+    }
+    public function getSubmittedValues() {
+        return $this->submittedValues;
+    }
+    public function setSubmittedValues(array $value) {
+        $this->submittedValues = $value;
     }
 
 
