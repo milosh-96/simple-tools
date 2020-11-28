@@ -59,6 +59,7 @@ Route::prefix("/list")->group(function() {
 
 Route::prefix("/text")->group(function() {
     Route::get('/notes',[App\Http\Controllers\TextController::class,"notes"])->name('text.notes');
+    Route::match(["get","post"],'reverse-text',[App\Http\Controllers\TextController::class,"reverseText"])->name('text.reverse-text');
 });
 
 

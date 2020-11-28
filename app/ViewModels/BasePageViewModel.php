@@ -37,6 +37,9 @@ abstract class BasePageViewModel {
 
 
 
+
+
+
     // setters and getters //
 
 
@@ -81,6 +84,9 @@ abstract class BasePageViewModel {
     // check if form is submitted, used for single page tools (both get & post)
     public function setFormSubmitted() {
         $this->formSubmitted = true;
+    }
+    public function isFormSubmitted() {
+        return $this->formSubmitted;
     }
 
 
