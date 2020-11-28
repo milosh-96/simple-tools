@@ -19,6 +19,10 @@ abstract class BasePageViewModel {
     public $errors = [];
     public $notes = [];
 
+    //
+    public $result;
+    //
+
 
     public function __construct() {
         $this->title = "Page";
@@ -75,13 +79,19 @@ abstract class BasePageViewModel {
     }
 
 
-
+    public function getResult() {
+        return $this->result;
+    }
+    public function setResult($value) {
+        return $this->result = $value;
+    }
 
 
     // check if form is submitted, used for single page tools (both get & post)
     public function setFormSubmitted() {
         $this->formSubmitted = true;
     }
+
 
 
     public function getErrors() {
