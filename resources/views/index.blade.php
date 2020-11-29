@@ -11,5 +11,4 @@
 @endsection
 
 @section('additionalHead')
-<link href="{{route('home')}}" rel="canonical" />
 @endsection
