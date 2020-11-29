@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="{{$viewModel->getDescription() ?? $viewModel->getTagline() ?? ""}}" />
-    <title>{{$title ?? $viewModel->getTitle() ?? "Home page"}} - {{env('APP_NAME')}} - Do simple things SIMPLY</title>
+    <title>{{$title ?? $viewModel->getTitle() ?? view()->getSections()['title'] ?? "Home page"}} - {{env('APP_NAME')}} - Do simple things SIMPLY</title>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/app.css" crossorigin="anonymous">
@@ -62,7 +62,7 @@
             @yield('content')
         </div>
     </div>
-    <footer style="margin-top:30px;background:#f2f2f2">
+    <footer>
         <div class="row">
             <div class="columns">
                 <small>&copy; {{date("Y")}}. {{env('APP_NAME')}}. All Rights Reserved.</small>
