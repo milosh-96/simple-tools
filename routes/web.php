@@ -62,7 +62,9 @@ Route::prefix("/text")->group(function() {
     Route::match(["get","post"],'reverse-text',[App\Http\Controllers\TextController::class,"reverseText"])->name('text.reverse-text');
 });
 
-
+Route::prefix("/questions")->group(function() {
+    Route::get('/question/{question}',[App\Http\Controllers\QuestionController::class,"show"])->name('question.show');
+});
 
 
 //
