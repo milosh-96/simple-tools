@@ -3,6 +3,9 @@
         <a href="#">{{auth()->user()->user_name}}</a>
         <ul class="menu">
             <li>
+                <a href="{{route('profile.edit')}}">Edit Profile</a>
+            </li>
+            <li>
                 <form action="{{route('logout')}}" id="logoutForm" method="POST">
                     @csrf
                     <a href="#logout">Logout</a>
