@@ -26,8 +26,9 @@ Route::prefix('converters')->group(function() {
 });
 
 Route::prefix('auth')->group(function() {
-    Route::prefix('account')->group(function() {
+    Route::group(["middleware"=>"auth","prefix"=>"account"],function() {
         Route::get('edit-profile',[App\Http\Controllers\Auth\AccountController::class,"editProfile"])->name('profile.edit');
+        Route::get('edit-password',[App\Http\Controllers\Auth\AccountController::class,"editPassword"])->name('profile.edit-password');
     });
 });
 
