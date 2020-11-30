@@ -25,12 +25,12 @@ Route::prefix('converters')->group(function() {
     });
 });
 
-// Route::prefix('auth')->group(function() {
-//     Route::prefix('account')->group(function() {
-//         Route::match(['get','post'],'login',[App\Http\Controllers\Auth\AccountController::class,"login"])->name('login');
-//         Route::match(['get','post'],'register',[App\Http\Controllers\Auth\AccountController::class,"register"])->name('register');
-//     });
-// }); replaced by fortify
+Route::prefix('auth')->group(function() {
+    Route::group(["middleware"=>"auth","prefix"=>"account"],function() {
+        Route::get('edit-profile',[App\Http\Controllers\Auth\AccountController::class,"editProfile"])->name('profile.edit');
+        Route::get('edit-password',[App\Http\Controllers\Auth\AccountController::class,"editPassword"])->name('profile.edit-password');
+    });
+});
 
 Route::prefix("/pages")->group(function() {
     Route::get("/terms-of-service",function() {
