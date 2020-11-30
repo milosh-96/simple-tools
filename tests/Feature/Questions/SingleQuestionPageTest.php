@@ -4,6 +4,7 @@ namespace Tests\Feature\Questions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
 
 class SingleQuestionPageTest extends TestCase
@@ -40,4 +41,6 @@ class SingleQuestionPageTest extends TestCase
         $response->assertSee("Comments");
 
     }
+
+   
 }

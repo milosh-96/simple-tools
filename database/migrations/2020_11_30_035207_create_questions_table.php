@@ -16,6 +16,14 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string("title");
+            $table->text("description")->nullable();
+            $table->string("choices"); // array //
+            $table->unsignedBigInteger("user_id");
+        });
+
+        Schema::table('questions', function (Blueprint $table) {
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
         });
     }
 

@@ -1,16 +1,16 @@
 @extends('layout.main')
 @section('content')
    <div>
-    <h1>Question Title</h1>
-    <p>Question Description</p>
+    <h1>{{$viewModel->getQuestion()->getTitle()}}</h1>
+    <p>{{$viewModel->getQuestion()->getDescription()}}</p>
     <hr>
     <div>
-        <small>{{date("Y-m-d H:i:s")}}</small>
-        <small>By User</small>
+        <small>{{$viewModel->getQuestion()->getHumanDateOfPosting()}}</small>
+        <small>by {{$viewModel->getQuestion()->user->user_name}}</small>
     </div>
     <div class="buttons">
-        <button>Yes</button>
-        <button>No</button>
+        <button class="button primary">{{$viewModel->getQuestion()->getChoicesArray()[0]}}</button>
+        <button class="button primary">{{$viewModel->getQuestion()->getChoicesArray()[1]}}</button>
     </div>
 </div>
 
@@ -24,15 +24,15 @@
     {
         "@context": "https://schema.org",
         "@type": "Question",
-        "name": "What is attr_accessor in Ruby?",
+        "name": "{{$viewModel->getQuestion()->getTitle()}}",
         "upvoteCount": "196",
-        "text": "I am having difficulty understanding Ruby attr_accessors, can someone explain them?",
-        "dateCreated": "2010-11-04T20:07Z",
+        "text": "{{$viewModel->getQuestion()->getDescription()}}",
+        "dateCreated": "{{$viewModel->getQuestion()->created_at}}",
         "author": {
             "@type": "Person",
-            "name": "someuser"
+            "name": "{{$viewModel->getQuestion()->user->user_name}}"
         },
-        "answerCount": "4",
+        "answerCount": "2",
         "acceptedAnswer": {
             "@type": "Answer",
             "upvoteCount": "1337",
