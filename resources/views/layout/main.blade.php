@@ -24,8 +24,7 @@
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/app.css" crossorigin="anonymous">
-    <link href="{{route(request()->route()->getName())}}" rel="canonical" />
-
+    <link href="{{str_replace("https://www.","https://",url()->current())}}" rel="canonical" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     @yield('additionalHead')
     <script type="application/ld+json">
