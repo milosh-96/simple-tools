@@ -25,7 +25,7 @@
         "@context": "https://schema.org",
         "@type": "Question",
         "name": "{{$viewModel->getQuestion()->getTitle()}}",
-        "upvoteCount": "196",
+        "upvoteCount": "0",
         "text": "{{$viewModel->getQuestion()->getDescription()}}",
         "dateCreated": "{{$viewModel->getQuestion()->created_at}}",
         "author": {
@@ -33,25 +33,39 @@
             "name": "{{$viewModel->getQuestion()->user->user_name}}"
         },
         "answerCount": "2",
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "upvoteCount": "1337",
-            "text": "(The text of the accepted answer goes here...).",
-            "dateCreated": "2010-12-01T22:01Z",
-            "author": {
-                "@type": "Person",
-                "name": "someuser"
-            }
-        },
         "suggestedAnswer": {
-            "@type": "Answer",
-            "upvoteCount": "39",
-            "text": "(The text of the accepted answer goes here...).",
-            "dateCreated": "2010-12-06T21:11Z",
-            "author": {
-                "@type": "Person",
-                "name": "lonelyuser1234"
-            }
+            "@type": "ItemList",
+            "numberOfItems": "2",
+            "itemListElement":[
+                {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "Answer",
+                        "upvoteCount": "0",
+                        "name": "{{$viewModel->getQuestion()->getChoicesArray()[0]}}",
+                        "text": "{{$viewModel->getQuestion()->getChoicesArray()[0]}}",
+                        "dateCreated": "2010-12-01T22:01Z",
+                        "author": {
+                            "@type": "Person",
+                            "name": "{{$viewModel->getQuestion()->user->user_name}}"
+                        }
+                }},
+                {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                        "@type": "Answer",
+                        "upvoteCount": "0",
+                        "name": "{{$viewModel->getQuestion()->getChoicesArray()[1]}}",
+                        "text": "{{$viewModel->getQuestion()->getChoicesArray()[1]}}",
+                        "dateCreated": "2010-12-01T22:01Z",
+                        "author": {
+                            "@type": "Person",
+                            "name": "{{$viewModel->getQuestion()->user->user_name}}"
+                        }
+                }
+            }]
         }
     }
     </script>

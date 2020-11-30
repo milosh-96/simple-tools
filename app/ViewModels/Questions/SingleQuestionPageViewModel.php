@@ -7,7 +7,7 @@ use App\Models\Questions\Question;
 class SingleQuestionPageViewModel extends \App\ViewModels\BasePageViewModel
 {
 
-    private Question $question;
+    private $question;
      public function __construct(Question $question)
     {
         $this->setQuestion($question);
