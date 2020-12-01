@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Question;
 
+use App\Models\Questions\Question;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AnswerQuestionRequest extends FormRequest
@@ -13,6 +14,9 @@ class AnswerQuestionRequest extends FormRequest
      */
     public function authorize()
     {
+        if(auth()->user()) {
+            return true;
+        }
         return false;
     }
 
@@ -23,8 +27,11 @@ class AnswerQuestionRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        return [];
+    }
+
+    protected function failedAuthorization()
+    {
+        return redirect()->back();
     }
 }
