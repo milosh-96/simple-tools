@@ -24,7 +24,7 @@
                     </form>
                 </div>
                 <div class="columns small-6">
-                    <form action="">
+                    <form method="post" action="{{route('question.answer.store',[$viewModel->getQuestion()->slug])}}">
                         @csrf
                         <input type="hidden" name="choice_index" value="1">
                         <input type="hidden" name="choice_value" value="{{$viewModel->getQuestion()->getChoicesArray()[1]}}">

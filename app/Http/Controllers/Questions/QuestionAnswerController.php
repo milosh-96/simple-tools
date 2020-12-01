@@ -14,6 +14,7 @@ class QuestionAnswerController extends Controller
         $answer = new QuestionAnswer($request->all());
         $answer->user()->associate(auth()->user());
         $answer->question()->associate($question);
+        $answer->save();
         //return $answer;
         return redirect()->back();
 
