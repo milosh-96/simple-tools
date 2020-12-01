@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Questions;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Models\Questions\Question;
 use App\ViewModels\Questions\SingleQuestionPageViewModel;
@@ -12,6 +13,7 @@ class QuestionController extends Controller
 {
     public function show(Question $question)
     {
+        //return $question;
         $data = ["viewModel"=>new SingleQuestionPageViewModel($question)];
         return view('questions.show')->with($data);
     }
@@ -23,6 +25,7 @@ class QuestionController extends Controller
 
         //return($request->all());
         $question = Question::create($request->all());
-        return redirect()->route('question.show',["question"=>$question->id]);
+        session()->flash("status","Great! Your have posted a question. Share it on social media and invite people to vote.");
+        return redirect()->route('question.show',["question"=>$question->slug]);
     }
 }

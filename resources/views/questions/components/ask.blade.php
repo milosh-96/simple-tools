@@ -5,14 +5,14 @@
     <div class="step"  id="question-title" data-step="1">
     <strong>Question Title</strong>
         <div class="input-group">
-            <input type="text"  style="font-size: 23" name="title" placeholder="What is your question?">
+            <input required type="text"  style="font-size: 23px" name="title" placeholder="What is your question?">
         </div>
         <button class="button step-control" data-tostep="2">Next</button>
     </div>
     <div class="step"  id="question-desc" data-step="2">
     <strong>Question Description</strong>
         <div class="input-group">
-            <input type="text"  style="font-size: 23px" name="description" placeholder="Explain your question in few words."">
+            <input required type="text"  style="font-size: 23px" name="description" placeholder="Explain your question in few words."">
         </div>
         <button class="button step-control" data-tostep="1">Back</button>
         <button class="button step-control" data-tostep="3">Next</button>
@@ -20,10 +20,10 @@
     <div class="step"  id="question-choices" data-step="3">
         <strong>Choices</strong>
         <div class="input-group">
-            <input type="text" name="choices[]"  style="font-size: 23" placeholder="Option 1 (example: yes)">
+            <input required type="text" name="choices[]"  style="font-size: 23px" placeholder="Option 1 (example: yes)">
         </div>
         <div class="input-group">
-            <input type="text" name="choices[]"  style="font-size: 23" placeholder="Option 2 (example: no)">
+            <input  required type="text" name="choices[]"  style="font-size: 23px" placeholder="Option 2 (example: no)">
         </div>
         <button class="button step-control" data-tostep="2">Back</button>
         <button class="button">Submit</button>
@@ -48,5 +48,5 @@
 </script>
 @endsection
 @else
-<a href="{{route('login')}}">Login to Ask</a>
+@include('layout.small-components.login-required',["message"=>"Login to ask question"])
 @endif

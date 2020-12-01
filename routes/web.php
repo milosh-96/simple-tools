@@ -63,10 +63,14 @@ Route::prefix("/text")->group(function() {
 });
 
 Route::prefix("/questions")->group(function() {
-    Route::post('/',[App\Http\Controllers\QuestionController::class,"store"])->name('question.store');
-    Route::get('/question/{question}',[App\Http\Controllers\QuestionController::class,"show"])->name('question.show');
+    Route::post('/',[App\Http\Controllers\Questions\QuestionController::class,"store"])->name('question.store');
+    Route::prefix("question")->group(function() {
+        Route::prefix('/{question}')->group(function(){
+            Route::get('/',[App\Http\Controllers\Questions\QuestionController::class,"show"])->name('question.show');
+            Route::post('/answer',[App\Http\Controllers\Questions\QuestionAnswerController::class,"store"])->name('question.answer.store');
+        });
 });
-
+});
 
 //
 

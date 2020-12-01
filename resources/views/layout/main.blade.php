@@ -45,11 +45,14 @@
             <div class="columns small-12 medium-3">
                 <a href="{{route('home')}}" id="top-logo">Home page</a>
             </div>
-            @if(auth()->user())
             <div class="columns small-12 medium-4 medium-text-right">
+                @if(auth()->user())
                 @include('layout.user-menu')
-            </div>
+                @else
+             @include('layout.small-components.login-or-register')
             @endif
+            </div>
+
         </div>
     </header>
     <div class="row">

@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string("title");
+            $table->string("slug")->unique();
             $table->text("description")->nullable();
             $table->string("choices"); // array //
             $table->unsignedBigInteger("user_id");
