@@ -10,7 +10,7 @@
     <input type="hidden" name="submitted" value="1">
     <div class="row">
         <div class="small-12 medium-8 columns">
-            @include('image.components.file-handler')
+            @include('global.components.file-handler')
 
 
             @if($viewModel->formSubmitted)
