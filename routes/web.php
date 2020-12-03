@@ -21,9 +21,7 @@ Route::get("/",function() {
 })->name('home');
 
 
-Route::prefix("upload")->group(function() {
-    Route::post("/",[UploadController::class,"upload"])->name('upload');
-});
+
 
 Route::prefix('converters')->group(function() {
     Route::prefix('bitcoin')->group(function() {
@@ -103,6 +101,10 @@ Route::prefix("engine")->group(function() {
         Route::get('get-data',function() {
             return App\Services\BitcoinConverterService::getData();
         });
+    });
+
+    Route::prefix("upload")->group(function() {
+        Route::post("/",[UploadController::class,"upload"])->name('upload');
     });
 });
 
