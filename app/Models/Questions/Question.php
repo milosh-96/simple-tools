@@ -23,6 +23,10 @@ class Question extends Model
         return $this->hasMany('App\Models\Questions\QuestionAnswer');
     }
 
+    public function getNumberOfAnswers() {
+        return count($this->answers()->get());
+    }
+
     public function comments() {
         return $this->hasMany("App\Models\Questions\QuestionComment");
     }

@@ -72,6 +72,7 @@ Route::prefix("/questions")->group(function() {
         Route::prefix('/{question}')->group(function(){
             Route::get('/',[App\Http\Controllers\Questions\QuestionController::class,"show"])->name('question.show');
             Route::post('/answer',[App\Http\Controllers\Questions\QuestionAnswerController::class,"store"])->name('question.answer.store');
+            Route::post('/comment',[App\Http\Controllers\Questions\QuestionCommentController::class,"store"])->name('question.comment.store');
         });
 });
 });

@@ -1,5 +1,8 @@
 @if(auth()->user())
-<div class="callout">
+<p><button class="button small" data-open="ask-question">Ask question</button></p>
+<div class="reveal" id="ask-question" data-reveal>
+
+<div class="form">
     <form action="{{route('question.store')}}" method="POST">
     @csrf
     <div class="step"  id="question-title" data-step="1">
@@ -30,7 +33,10 @@
     </div>
     </form>
 </div>
-
+<button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
 @section('scriptSection')
 <script>
@@ -45,6 +51,9 @@
    }
 
    stepControl();
+
+   var elem = new Foundation.Reveal($("#ask-question"));
+
 </script>
 @endsection
 @else

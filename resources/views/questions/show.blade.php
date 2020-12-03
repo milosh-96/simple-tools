@@ -6,7 +6,7 @@
         <small>by {{$viewModel->getQuestion()->user->user_name}}</small>
     </div>
     <h1>{{$viewModel->getQuestion()->getTitle()}}</h1>
-
+    @include('layout.errors')
     <p>{{$viewModel->getQuestion()->getDescription()}}</p>
     <hr>
 
@@ -39,21 +39,24 @@
             @include('layout.small-components.login-required',["message"=>"Login to vote"])
         @endif
         <hr>
-        Total votes: 0
+        Total votes: {{$viewModel->getQuestion()->getNumberOfAnswers()}}
         </div>
 
     <hr style="margin-bottom: 80px">
     <h2>Comments</h2>
     @if(auth()->user())
-    <form action="">
+    <form method="POST" id="comment-form" action="{{route('question.comment.store',[$viewModel->getQuestion()->slug])}}">
+        @csrf
+
         <div class="input-group">
-            <textarea name="comment" id="comment" cols="30" rows="2" placeholder="What do you think?"></textarea>
+            <textarea name="body" id="comment" cols="30" rows="2" placeholder="What do you think?"></textarea>
             <button class="button" type="submit">Send</button>
         </div>
     </form>
     @else
     @include('layout.small-components.login-required',["message"=>"Login to join discussion"])
     @endif
+    @include('questions.components.comments.listview',["question"=>$viewModel->getQuestion()])
    </div>
 @endsection
 

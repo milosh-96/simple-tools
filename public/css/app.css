@@ -3,6 +3,10 @@ header {
     background: #f2f2f2;
 }
 
+body {
+    background:  #f2f2f2;
+  }
+
 #top-logo {
   display: block;
   text-indent: -9999px;
@@ -34,7 +38,7 @@ a {
     }
     h3.caption {
         padding:5px;
-        background: #f2f2f2;
+        background:rgba(0,0,0,0.1);
         font-size:12px;
         font-weight:bold;
         text-transform:uppercase;
