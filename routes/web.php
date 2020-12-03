@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\Account\UserRegisteredEvent;
+use App\Http\Controllers\Engine\UploadController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 /*
@@ -18,6 +19,9 @@ Route::get("/",function() {
     $data = ["viewModel"=>new \App\ViewModels\StaticPages\HomePageViewModel];
     return view("index")->with($data);
 })->name('home');
+
+
+
 
 Route::prefix('converters')->group(function() {
     Route::prefix('bitcoin')->group(function() {
@@ -104,6 +108,10 @@ Route::prefix("engine")->group(function() {
         Route::get('get-data',function() {
             return App\Services\BitcoinConverterService::getData();
         });
+    });
+
+    Route::prefix("upload")->group(function() {
+        Route::post("/",[UploadController::class,"upload"])->name('upload');
     });
 });
 
