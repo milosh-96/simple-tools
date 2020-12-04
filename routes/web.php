@@ -2,6 +2,7 @@
 
 use App\Events\Account\UserRegisteredEvent;
 use App\Http\Controllers\Engine\UploadController;
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 /*
@@ -58,7 +59,8 @@ Route::prefix("/number")->group(function() {
     Route::match(["get","post"],"range",[App\Http\Controllers\NumberController::class,"range"])->name("number.range");
 });
 Route::prefix("/list")->group(function() {
-    Route::match(["get","post"],"random",[App\Http\Controllers\ListController::class,"random"])->name("list.random");
+    Route::match(["get","post"],"random/{itemList?}",[App\Http\Controllers\ListController::class,"random"])->name("list.random");
+    Route::post("/{itemList?}",[App\Http\Controllers\ListController::class,"store"])->name("list.store");
 });
 
 Route::prefix("/text")->group(function() {
