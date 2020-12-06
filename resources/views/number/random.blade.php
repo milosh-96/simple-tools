@@ -32,7 +32,9 @@
     @endif
    </div> --}}
 
-   <div id="random-number"></div>
+   <div id="random-number">
+       Loading... please wait.
+   </div>
 @endsection
 
 @section('scriptSection')
