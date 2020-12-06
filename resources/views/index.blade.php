@@ -26,7 +26,7 @@
     'use strict';
 const e = React.createElement;
 
-const domContainer = document.querySelector('#component#utility');
+const domContainer = document.getElementById('utility');
 ReactDOM.render(e(RandomNumber), domContainer);
     </script>
 @endsection
