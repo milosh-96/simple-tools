@@ -9,8 +9,12 @@
 
     <p>Do you want to quickly resize an image, get a random number, make a choice or something else?</p>
     <hr>
+
     <div id="component">
-        Loading... please wait.
+        <h3>Random Number</h3>
+        <div id="utility">
+                Loading... please wait.
+        </div>
     </div>
 
 @endsection
@@ -22,7 +26,7 @@
     'use strict';
 const e = React.createElement;
 
-const domContainer = document.querySelector('#component');
+const domContainer = document.querySelector('#component#utility');
 ReactDOM.render(e(RandomNumber), domContainer);
     </script>
 @endsection
