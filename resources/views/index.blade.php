@@ -9,8 +9,23 @@
 
     <p>Do you want to quickly resize an image, get a random number, make a choice or something else?</p>
     <hr>
+    <div id="component">
+
+    </div>
+
+@endsection
 
 
+@section('scriptSection')
+<script type="text/babel"  src="/js/components/RandomNumber.js"></script>
+<script type="text/babel">
+    'use strict';
+
+const e = React.createElement;
+
+const domContainer = document.querySelector('#component');
+ReactDOM.render(e(RandomNumber), domContainer);
+    </script>
 @endsection
 
 @section('additionalHead')
