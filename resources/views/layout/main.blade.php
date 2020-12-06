@@ -77,6 +77,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js" integrity="sha512-9cXmvmK1gIDw3Tol6Xg/1SUls/CvBMgedu1aDjT519sQzy7jk+LoezyQqlzClW2LgXww4xEyuqtofg7PtWteLQ==" crossorigin="anonymous"></script>
 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    @if(env('APP_ENV')=='local')
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+     @else
+     <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+     @endif
     @yield('layoutScriptSection')
     @yield('scriptSection')
 </body>
