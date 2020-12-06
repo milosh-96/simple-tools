@@ -56,7 +56,7 @@ abstract class BasePageViewModel {
     }
     //
     public function getTagline() {
-        return $this->tagline;
+        return $this->tagline ?? $this->description;
     }
     public function setTagline($value) {
         $this->tagline = $value;

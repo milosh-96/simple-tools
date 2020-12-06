@@ -23,6 +23,11 @@ class NumberController extends Controller
         $data = [
             "viewModel"=>$viewModel
         ];
+        if(request()->isMethod('post')) {
+            $viewModel->setFormSubmitted();
+            $viewModel->getRandomNumber();
+            return response()->json($viewModel);
+        }
         return view('number.random')->with($data);
     }
     public function range($start = 0,$end = 25) {
