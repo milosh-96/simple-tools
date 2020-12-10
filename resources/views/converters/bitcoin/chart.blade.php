@@ -4,7 +4,7 @@
     <p>{{$viewModel->getTagline()}}</p>
     @include('layout.errors')
     <hr>
-    <table class="table">
+    {{-- <table class="table">
         <thead>
             <tr>
                 <th>Currency</th>
@@ -21,7 +21,11 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> --}}
+
+    <div id="bitcoin-chart-table">
+        Loading...please wait.
+    </div>
     @include('layout.notes')
 @endsection
 
@@ -32,5 +36,14 @@
       "@type": "Table",
       "about": "{{$viewModel->getTitle()}}"
     }
+    </script>
+    <script src="/js/components/BitcoinChartTable.js" type="text/babel"></script>
+    <script type="text/babel">
+        'use strict';
+
+const e = React.createElement;
+
+const domContainer = document.querySelector('#bitcoin-chart-table');
+ReactDOM.render(e(BitcoinChartTable), domContainer);
     </script>
 @endsection
