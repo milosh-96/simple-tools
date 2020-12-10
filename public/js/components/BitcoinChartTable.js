@@ -1,12 +1,12 @@
 class BitcoinChartTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {loading:false,isLoaded:false,data:null};
+        this.state = {loading:false,isLoaded:false,data:null,lastUpdate:Date.now()};
     }
     componentDidMount() {
         this.loadData();
 
-        setInterval(this.loadData.bind(this),7000);
+        setInterval(this.loadData.bind(this),10000);
     }
 
     loadData() {
@@ -25,16 +25,21 @@ class BitcoinChartTable extends React.Component {
     render() {
         const { loading,isLoaded,data } = this.state;
         let output = null;
-        let loadingState = null;
+        let loadingState = 'The table is updated every 10 seconds. No need to reload manully.';
         if(isLoaded) {
             //console.log(data);
             output = Object.entries(data).map(function(item,i) {
               return(<BitcoinChartTableRow item={item}  key={i}></BitcoinChartTableRow>)
             })
         }
+        if(loading) {
+            loadingState='Updating data...';
+        }
 
         return(
             <div>
+            <div className="callout success">{loadingState}</div>
+
  <table className="table">
         <thead>
             <tr>
