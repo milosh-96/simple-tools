@@ -67,7 +67,7 @@ abstract class BasePageViewModel {
         if($this->description == "" && $this->tagline != null) {
             $this->description = $this->tagline;
         }
-        return sprintf("%s%s",($this->description) ? $this->description . " " : "","Simple Tools is a collection of free tools for everyday use. No hidden paywalls!");
+        return sprintf("%s%s",($this->description) ? $this->description . " " : "","Simple Tools is a collection of free tools. Image Editing, List tools,Randomization Tools, Number tools and many other utilities. No hidden paywalls!");
     }
     public function setDescription($value) {
         $this->description = $value;
