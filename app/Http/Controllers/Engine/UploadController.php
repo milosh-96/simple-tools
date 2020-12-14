@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UploadController extends Controller
 {
     public function upload(Request $request) {
-        UploadService::upload($request->file);
+        return response(UploadService::upload($request->file('file')))->header("Content-Type","image/png");
         return redirect()->back();
     }
 }
