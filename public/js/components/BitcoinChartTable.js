@@ -25,7 +25,7 @@ class BitcoinChartTable extends React.Component {
     render() {
         const { loading,isLoaded,data } = this.state;
         let output = null;
-        let loadingState = 'The table is updated every 10 seconds. No need to reload manully.';
+        let loadingState = 'The table is updated every 10 seconds. No need to reload manually.';
         if(isLoaded) {
             //console.log(data);
             output = Object.entries(data).map(function(item,i) {
