@@ -13,20 +13,7 @@ class ListController extends Controller
     public function random(ItemList $itemList = null) {
 
         $viewModel = new RandomListItemViewModel;
-        if($itemList) {
-            $viewModel->itemList = $itemList;
-            $viewModel->setUpdateMode();
-            $viewModel->getParsedItems($viewModel->itemList->original_input);
-        }
-        //["title"=>"Get Random Item/s from List","items" => request()->items ?? ""];
-       // return request()->all();
-      if(request()->submitted) {
-        $viewModel->setItemsString(request()->items);
-        $viewModel->setSeparator(request()->separator);
-        $viewModel->setFormSubmitted();
-        $viewModel->getParsedItems($viewModel->itemsString);
 
-      }
 
       $data = ["viewModel"=>$viewModel];
         return view("list.random-items",$data);

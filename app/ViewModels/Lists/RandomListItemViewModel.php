@@ -27,12 +27,7 @@ class RandomListItemViewModel extends \App\ViewModels\BasePageViewModel {
         $this->setDefaultItemsString();
     }
 
-    public function getParsedItems($value) {
-        $parsedItems = ListService::parseItems($this->itemList->original_input,$this->itemList->original_separator);
-        $this->parsedItems = $parsedItems;
-        $this->randomItemIndex = rand(0,(count($this->parsedItems)-1));
-        return $parsedItems;
-    }
+
 
     public function setFormSubmitted() {
         $this->saveOrUpdateButton = "Save";

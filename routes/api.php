@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ItemLists\ItemList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix'=>'api','middleware' => ['api']], function () {
+Route::group(['middleware' => ['api']], function () {
 
 //routes for raw results (mostly for api endpoints) //
 Route::prefix("engine")->group(function() {
@@ -30,6 +31,26 @@ Route::prefix("engine")->group(function() {
             return App\Services\BitcoinConverterService::getData();
         });
     });
+
+    Route::prefix('list')->group(function() {
+        Route::prefix('{id}')->group(function() {
+            Route::get('get',function(Request $request,ItemList $itemList) {
+                return $itemList->find($request->id);
+            });
+        });
+        Route::post('random',function(Request $request) {
+           return ["items"=>App\Services\ListService::parseItems(
+               $request->items,
+               $request->separator
+            ),
+            "randomItem"=>App\Services\ListService::getRandomItem(
+                $request->items,
+                $request->separator
+            )
+        ];
+        })->name('engine.list.random');
+    });
+
 
     Route::prefix("upload")->group(function() {
         Route::post("/",[UploadController::class,"upload"])->name('upload');

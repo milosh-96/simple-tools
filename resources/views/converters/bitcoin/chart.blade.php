@@ -37,6 +37,10 @@
       "about": "{{$viewModel->getTitle()}}"
     }
     </script>
+@endsection
+
+
+@section('scriptSection')
     <script src="/js/components/BitcoinChartTable.js" type="text/babel"></script>
     <script type="text/babel">
         'use strict';
