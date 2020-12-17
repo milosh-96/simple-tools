@@ -11,7 +11,7 @@
     <hr>
 
     <div id="component">
-        <h3>Random Number</h3>
+        <h3>Random Item From List</h3>
         <div id="utility">
                 Loading... please wait.
         </div>
@@ -21,13 +21,13 @@
 
 
 @section('scriptSection')
-<script type="text/babel"  src="/js/components/RandomNumber.js"></script>
+<script type="text/babel"  src="/js/components/RandomItemFromList.js"></script>
 <script type="text/babel">
     'use strict';
 const e = React.createElement;
 
 const domContainer = document.getElementById('utility');
-ReactDOM.render(e(RandomNumber), domContainer);
+ReactDOM.render(e(RandomItemFromList), domContainer);
     </script>
 @endsection
 
