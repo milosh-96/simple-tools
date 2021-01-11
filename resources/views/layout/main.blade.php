@@ -42,7 +42,6 @@
 </head>
 
 <body>
-    <header>
 	<div class="row">
 <div class="callout secondary" data-closable>
  <a href="https://click.simpletoolsweb.com" target="_blank">Simplest link analytics</a>
@@ -51,6 +50,8 @@
   </button>
 </div>
 </div>
+    <header>
+
         <div class="row">
             <div class="columns small-12 medium-3">
                 <a href="{{route('home')}}" id="top-logo">Home page</a>
