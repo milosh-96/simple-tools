@@ -44,9 +44,11 @@
 <body>
     <header>
 	<div class="row">
-<div data-alert class="alert-box info radius">
+<div class="callout secondary" data-closable>
  <a href="https://click.simpletoolsweb.com" target="_blank">Simplest link analytics</a>
-  <a href="#" class="close">&times;</a>
+ <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 </div>
         <div class="row">
