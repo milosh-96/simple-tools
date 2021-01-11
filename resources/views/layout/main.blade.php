@@ -44,7 +44,7 @@
 <body>
 	<div class="row">
 <div class="callout secondary" data-closable>
- <a href="https://click.simpletoolsweb.com" target="_blank">Simplest link analytics</a>
+ <a href="https://click.simpletoolsweb.com" target="_blank">Simple link analytics - track how many people clicked on your link</a>
  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
     <span aria-hidden="true">&times;</span>
   </button>
